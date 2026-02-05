@@ -1,0 +1,270 @@
+{
+  "metadata": {
+    "title": "HKCOM - Digital Agency Dunkirk | Web, Ads & Video | Nord-Pas-de-Calais",
+    "description": "Local digital agency in Dunkirk. Website creation, Google Ads, video production for businesses in Nord-Pas-de-Calais. France Num Certified. Free quote."
+  },
+  "nav": {
+    "home": "Home",
+    "strategies": "MAX Strategies",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "subsidies": "Digital Subsidies",
+    "contact": "Contact",
+    "cta": "Discovery Call"
+  },
+  "hero": {
+    "badge": "-50% on your website",
+    "title": "Create your Digital",
+    "titleHighlight": "Ecosystem",
+    "subtitle": "Your local digital partner in Nord-Pas-de-Calais. We come to you!",
+    "cta": {
+      "primary": "Book a call",
+      "secondary": "See our strategies"
+    },
+    "stats": {
+      "clients": "+100",
+      "clientsLabel": "Happy clients",
+      "satisfaction": "98%",
+      "satisfactionLabel": "Satisfaction",
+      "experienceLabel": "Years of experience"
+    },
+    "trustedBy": "They trust us"
+  },
+  "brands": {
+    "title": "They trust us",
+    "subtitle": "Businesses in Nord-Pas-de-Calais have chosen us for their digital transformation"
+  },
+  "strategies": {
+    "title": "Our",
+    "titleHighlight": "MAX Strategies",
+    "subtitle": "Three complete approaches to maximize your online presence",
+    "clientMax": {
+      "title": "Client MAX",
+      "description": "Professional website + Google Ads to attract and convert prospects into customers",
+      "features": ["Custom website", "Google Ads campaign", "Conversion tracking", "Dedicated support"]
+    },
+    "impactMax": {
+      "title": "Impact MAX",
+      "description": "Automated LinkedIn campaigns to grow your B2B network and generate qualified leads",
+      "features": ["LinkedIn automation", "Precise targeting", "Personalized messages", "Monthly reporting"]
+    },
+    "visibilityMax": {
+      "title": "Visibility MAX",
+      "description": "Advertising audiovisual content to make an impact and boost your brand awareness",
+      "features": ["Advertising videos", "Professional photos", "Social media", "Content strategy"]
+    },
+    "cta": "Learn more"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Local digital solutions for businesses in Nord-Pas-de-Calais",
+    "cta": "Learn more",
+    "contactCta": "Discuss your project",
+    "web": {
+      "title": "Web Design",
+      "description": "Custom websites, optimized for SEO and conversion"
+    },
+    "ads": {
+      "title": "Digital Advertising",
+      "description": "Google Ads and social media campaigns to maximize your visibility"
+    },
+    "content": {
+      "title": "Audiovisual Content",
+      "description": "Professional video and photo production for your communication"
+    }
+  },
+  "timeline": {
+    "title": "Our Process",
+    "subtitle": "A proven 4-step methodology",
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "Analysis of your needs, goals and targets to define the optimal strategy"
+      },
+      "design": {
+        "title": "Design",
+        "description": "Creation of mockups and design validation before development"
+      },
+      "development": {
+        "title": "Development",
+        "description": "Technical implementation with regular follow-up and quality testing"
+      },
+      "launch": {
+        "title": "Launch",
+        "description": "Go-live, training and post-launch support"
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "Discover some of our recent projects",
+    "viewProject": "View project",
+    "categories": {
+      "all": "All",
+      "web": "Websites",
+      "ecommerce": "E-commerce",
+      "branding": "Branding"
+    }
+  },
+  "stats": {
+    "clients": {
+      "value": "100+",
+      "label": "Happy clients"
+    },
+    "projects": {
+      "value": "150+",
+      "label": "Completed projects"
+    },
+    "satisfaction": {
+      "value": "98%",
+      "label": "Satisfaction rate"
+    },
+    "experience": {
+      "value": "5+",
+      "label": "Years of experience"
+    }
+  },
+  "testimonials": {
+    "title": "What our clients say",
+    "subtitle": "Authentic testimonials from our partners"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know before getting started",
+    "items": {
+      "q1": {
+        "question": "How much does a website cost?",
+        "answer": "The cost depends on your specific needs. We offer solutions starting from 1500€ for a showcase website, with financing options available through France Num subsidies."
+      },
+      "q2": {
+        "question": "What are the delivery times?",
+        "answer": "A showcase website is typically delivered in 2-4 weeks. For e-commerce or more complex projects, expect 4-8 weeks depending on features."
+      },
+      "q3": {
+        "question": "Do you offer maintenance?",
+        "answer": "Yes, we offer monthly maintenance packages including updates, backups, security and technical support."
+      },
+      "q4": {
+        "question": "How does the France Num subsidy work?",
+        "answer": "As a France Num Activator, we help you benefit from up to 500€ in subsidies for your digitalization project. We handle the administrative procedures."
+      },
+      "q5": {
+        "question": "Where do you operate?",
+        "answer": "Based in Dunkirk, we primarily serve Nord-Pas-de-Calais: Dunkirk, Calais, Lille, Boulogne-sur-Mer... We come to you for meetings and shoots. We also work remotely with clients outside the region."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to boost your visibility in Nord-Pas-de-Calais?",
+    "subtitle": "Let's discuss your project - we can even meet in person!",
+    "button": "Book a call"
+  },
+  "footer": {
+    "description": "Digital agency based in Dunkirk. Website creation, Google Ads and video production for SMEs in Nord-Pas-de-Calais.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact",
+    "legal": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved",
+    "certification": "France Num Certified"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "contactUs": "Contact us",
+    "bookCall": "Book a call"
+  },
+  "team": {
+    "badge": "Local Team",
+    "title": "A Team",
+    "titleHighlight": "Near You",
+    "description": "Based in Dunkirk, our team travels throughout Nord-Pas-de-Calais to support you. The advantage of a local agency: responsiveness, local knowledge and trusted relationships.",
+    "yearsExperience": "Years of experience",
+    "features": {
+      "support": {
+        "title": "Responsive Support",
+        "description": "A team available to answer your questions"
+      },
+      "availability": {
+        "title": "Availability",
+        "description": "Personalized support Monday to Friday"
+      },
+      "expertise": {
+        "title": "Expertise",
+        "description": "Qualified professionals in their field"
+      },
+      "dedicated": {
+        "title": "Single Point of Contact",
+        "description": "A dedicated project manager for your follow-up"
+      }
+    }
+  },
+  "values": {
+    "title": "Our",
+    "titleHighlight": "Values",
+    "subtitle": "The pillars that guide our approach and guarantee your satisfaction",
+    "items": {
+      "reliability": {
+        "title": "Reliability",
+        "description": "We respect our commitments and deadlines for a smooth collaboration."
+      },
+      "satisfaction": {
+        "title": "Client Satisfaction",
+        "description": "Your success is our priority. We work until your complete satisfaction."
+      },
+      "solutions": {
+        "title": "Concrete Solutions",
+        "description": "Measurable results and solutions tailored to your business objectives."
+      },
+      "certification": {
+        "title": "Certification",
+        "description": "Certified France Num Activator, a guarantee of quality and professionalism."
+      },
+      "dedicated": {
+        "title": "Single Point of Contact",
+        "description": "A dedicated project manager for personalized follow-up from A to Z."
+      },
+      "confidentiality": {
+        "title": "Confidentiality",
+        "description": "Your data and strategies are protected by strict confidentiality."
+      }
+    }
+  },
+  "certifications": {
+    "badge": "Certifications",
+    "title": "Recognized by",
+    "titleHighlight": "the Best",
+    "subtitle": "Certifications that attest to our expertise and quality commitment",
+    "verified": "Verified",
+    "items": {
+      "franceNum": {
+        "title": "France Num Activator",
+        "description": "Official support for the digital transformation of French SMEs."
+      },
+      "google": {
+        "title": "Google Partner",
+        "description": "Certified expertise in Google Ads advertising and SEO."
+      },
+      "meta": {
+        "title": "Meta Business Partner",
+        "description": "Recognized specialist in Facebook and Instagram Ads campaigns."
+      }
+    }
+  },
+  "newsletter": {
+    "badge": "Free Audit",
+    "title": "Get your free marketing audit",
+    "description": "Subscribe to our newsletter and receive a complete audit of your digital presence worth €200.",
+    "benefit1": "Analysis of your current website",
+    "benefit2": "Personalized recommendations",
+    "benefit3": "Exclusive tips every month",
+    "placeholder": "Your email address",
+    "button": "Get my free audit",
+    "privacy": "By subscribing, you agree to receive our emails. Unsubscribe at any time.",
+    "successTitle": "Thank you for subscribing!",
+    "successMessage": "You will receive your free audit within 24 hours."
+  }
+}

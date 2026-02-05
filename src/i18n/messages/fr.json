@@ -1,0 +1,270 @@
+{
+  "metadata": {
+    "title": "HKCOM - Agence Digitale Dunkerque | Web, Pub & Vidéo | Nord-Pas-de-Calais",
+    "description": "Agence digitale locale à Dunkerque. Création de sites internet, Google Ads, production vidéo pour les entreprises du Nord-Pas-de-Calais. Activateur France Num. Devis gratuit."
+  },
+  "nav": {
+    "home": "Accueil",
+    "strategies": "Stratégies MAX",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "subsidies": "Aides Numériques",
+    "contact": "Contact",
+    "cta": "Appel Découverte"
+  },
+  "hero": {
+    "badge": "-50% sur votre site web",
+    "title": "Créez votre Écosystème",
+    "titleHighlight": "Digital",
+    "subtitle": "Votre partenaire digital de proximité dans le Nord-Pas-de-Calais. On se déplace chez vous !",
+    "cta": {
+      "primary": "Réserver un appel",
+      "secondary": "Voir nos stratégies"
+    },
+    "stats": {
+      "clients": "+100",
+      "clientsLabel": "Clients satisfaits",
+      "satisfaction": "98%",
+      "satisfactionLabel": "Satisfaction",
+      "experienceLabel": "Ans d'expérience"
+    },
+    "trustedBy": "Ils nous font confiance"
+  },
+  "brands": {
+    "title": "Ils nous font confiance",
+    "subtitle": "Des entreprises du Nord-Pas-de-Calais nous ont choisi pour leur transformation digitale"
+  },
+  "strategies": {
+    "title": "Nos Stratégies",
+    "titleHighlight": "MAX",
+    "subtitle": "Trois approches complètes pour maximiser votre présence en ligne",
+    "clientMax": {
+      "title": "Client MAX",
+      "description": "Site web professionnel + Google Ads pour attirer et convertir vos prospects en clients",
+      "features": ["Site web sur mesure", "Campagne Google Ads", "Suivi des conversions", "Support dédié"]
+    },
+    "impactMax": {
+      "title": "Impact MAX",
+      "description": "Campagnes LinkedIn automatisées pour développer votre réseau B2B et générer des leads qualifiés",
+      "features": ["Automatisation LinkedIn", "Ciblage précis", "Messages personnalisés", "Reporting mensuel"]
+    },
+    "visibilityMax": {
+      "title": "Visibilité MAX",
+      "description": "Contenu audiovisuel publicitaire pour marquer les esprits et booster votre notoriété",
+      "features": ["Vidéos publicitaires", "Photos professionnelles", "Réseaux sociaux", "Stratégie de contenu"]
+    },
+    "cta": "En savoir plus"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Solutions digitales de proximité pour les entreprises du Nord",
+    "cta": "En savoir plus",
+    "contactCta": "Discuter de votre projet",
+    "web": {
+      "title": "Conception Web",
+      "description": "Sites web sur mesure, optimisés pour le référencement et la conversion"
+    },
+    "ads": {
+      "title": "Publicité Digitale",
+      "description": "Campagnes Google Ads et réseaux sociaux pour maximiser votre visibilité"
+    },
+    "content": {
+      "title": "Contenu Audiovisuel",
+      "description": "Production vidéo et photo professionnelle pour votre communication"
+    }
+  },
+  "timeline": {
+    "title": "Notre Processus",
+    "subtitle": "Une méthodologie éprouvée en 4 étapes",
+    "steps": {
+      "discovery": {
+        "title": "Découverte",
+        "description": "Analyse de vos besoins, objectifs et cibles pour définir la stratégie optimale"
+      },
+      "design": {
+        "title": "Conception",
+        "description": "Création des maquettes et validation du design avant développement"
+      },
+      "development": {
+        "title": "Développement",
+        "description": "Réalisation technique avec suivi régulier et tests de qualité"
+      },
+      "launch": {
+        "title": "Lancement",
+        "description": "Mise en ligne, formation et accompagnement post-lancement"
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Nos Réalisations",
+    "subtitle": "Découvrez quelques-uns de nos projets récents",
+    "viewProject": "Voir le projet",
+    "categories": {
+      "all": "Tous",
+      "web": "Sites Web",
+      "ecommerce": "E-commerce",
+      "branding": "Branding"
+    }
+  },
+  "stats": {
+    "clients": {
+      "value": "100+",
+      "label": "Clients satisfaits"
+    },
+    "projects": {
+      "value": "150+",
+      "label": "Projets réalisés"
+    },
+    "satisfaction": {
+      "value": "98%",
+      "label": "Taux de satisfaction"
+    },
+    "experience": {
+      "value": "5+",
+      "label": "Années d'expérience"
+    }
+  },
+  "testimonials": {
+    "title": "Ce que disent nos clients",
+    "subtitle": "Des témoignages authentiques de nos partenaires"
+  },
+  "faq": {
+    "title": "Questions Fréquentes",
+    "subtitle": "Tout ce que vous devez savoir avant de démarrer",
+    "items": {
+      "q1": {
+        "question": "Combien coûte un site web ?",
+        "answer": "Le coût dépend de vos besoins spécifiques. Nous proposons des solutions à partir de 1500€ pour un site vitrine, avec possibilité de financement via les aides France Num."
+      },
+      "q2": {
+        "question": "Quels sont les délais de réalisation ?",
+        "answer": "Un site vitrine est généralement livré en 2-4 semaines. Pour un e-commerce ou un projet plus complexe, comptez 4-8 semaines selon les fonctionnalités."
+      },
+      "q3": {
+        "question": "Proposez-vous de la maintenance ?",
+        "answer": "Oui, nous proposons des forfaits de maintenance mensuels incluant mises à jour, sauvegardes, sécurité et support technique."
+      },
+      "q4": {
+        "question": "Comment fonctionne l'aide France Num ?",
+        "answer": "En tant qu'Activateur France Num, nous vous accompagnons pour bénéficier jusqu'à 500€ d'aide pour votre projet de digitalisation. Nous gérons les démarches administratives."
+      },
+      "q5": {
+        "question": "Où intervenez-vous ?",
+        "answer": "Basés à Dunkerque, nous intervenons principalement dans le Nord-Pas-de-Calais : Dunkerque, Calais, Lille, Boulogne-sur-Mer... On se déplace chez vous pour les réunions et tournages. On travaille aussi à distance avec des clients hors région."
+      }
+    }
+  },
+  "cta": {
+    "title": "Prêt à booster votre visibilité dans le Nord ?",
+    "subtitle": "Échangeons sur votre projet - on peut même se voir !",
+    "button": "Réserver un appel"
+  },
+  "footer": {
+    "description": "Agence digitale basée à Dunkerque. Création de sites, Google Ads et production vidéo pour les TPE/PME du Nord-Pas-de-Calais.",
+    "quickLinks": "Liens Rapides",
+    "services": "Services",
+    "contact": "Contact",
+    "legal": "Mentions Légales",
+    "privacy": "Politique de Confidentialité",
+    "terms": "CGV",
+    "rights": "Tous droits réservés",
+    "certification": "Activateur France Num"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "getStarted": "Commencer",
+    "contactUs": "Nous contacter",
+    "bookCall": "Réserver un appel"
+  },
+  "team": {
+    "badge": "Équipe Locale",
+    "title": "Une Équipe",
+    "titleHighlight": "De Proximité",
+    "description": "Basée à Dunkerque, notre équipe se déplace dans tout le Nord-Pas-de-Calais pour vous accompagner. L'avantage d'une agence locale : réactivité, connaissance du terrain et relation de confiance.",
+    "yearsExperience": "Ans d'expérience",
+    "features": {
+      "support": {
+        "title": "Support Réactif",
+        "description": "Une équipe disponible pour répondre à vos questions"
+      },
+      "availability": {
+        "title": "Disponibilité",
+        "description": "Accompagnement personnalisé du lundi au vendredi"
+      },
+      "expertise": {
+        "title": "Expertise",
+        "description": "Des professionnels qualifiés dans leur domaine"
+      },
+      "dedicated": {
+        "title": "Interlocuteur Unique",
+        "description": "Un chef de projet dédié pour votre suivi"
+      }
+    }
+  },
+  "values": {
+    "title": "Nos",
+    "titleHighlight": "Valeurs",
+    "subtitle": "Les piliers qui guident notre approche et garantissent votre satisfaction",
+    "items": {
+      "reliability": {
+        "title": "Fiabilité",
+        "description": "Nous respectons nos engagements et délais pour une collaboration sereine."
+      },
+      "satisfaction": {
+        "title": "Satisfaction Client",
+        "description": "Votre réussite est notre priorité. Nous travaillons jusqu'à votre entière satisfaction."
+      },
+      "solutions": {
+        "title": "Solutions Concrètes",
+        "description": "Des résultats mesurables et des solutions adaptées à vos objectifs business."
+      },
+      "certification": {
+        "title": "Certification",
+        "description": "Activateur France Num certifié, gage de qualité et de professionnalisme."
+      },
+      "dedicated": {
+        "title": "Interlocuteur Unique",
+        "description": "Un chef de projet dédié pour un suivi personnalisé de A à Z."
+      },
+      "confidentiality": {
+        "title": "Confidentialité",
+        "description": "Vos données et stratégies sont protégées par une stricte confidentialité."
+      }
+    }
+  },
+  "certifications": {
+    "badge": "Certifications",
+    "title": "Reconnu par",
+    "titleHighlight": "les Meilleurs",
+    "subtitle": "Des certifications qui attestent de notre expertise et de notre engagement qualité",
+    "verified": "Vérifié",
+    "items": {
+      "franceNum": {
+        "title": "Activateur France Num",
+        "description": "Accompagnement officiel pour la transformation digitale des TPE/PME françaises."
+      },
+      "google": {
+        "title": "Google Partner",
+        "description": "Expertise certifiée en publicité Google Ads et référencement."
+      },
+      "meta": {
+        "title": "Meta Business Partner",
+        "description": "Spécialiste reconnu des campagnes Facebook et Instagram Ads."
+      }
+    }
+  },
+  "newsletter": {
+    "badge": "Audit Gratuit",
+    "title": "Recevez votre audit marketing gratuit",
+    "description": "Inscrivez-vous à notre newsletter et recevez un audit complet de votre présence digitale d'une valeur de 200€.",
+    "benefit1": "Analyse de votre site web actuel",
+    "benefit2": "Recommandations personnalisées",
+    "benefit3": "Conseils exclusifs chaque mois",
+    "placeholder": "Votre adresse email",
+    "button": "Recevoir mon audit gratuit",
+    "privacy": "En vous inscrivant, vous acceptez de recevoir nos emails. Désabonnement possible à tout moment.",
+    "successTitle": "Merci pour votre inscription !",
+    "successMessage": "Vous recevrez votre audit gratuit dans les 24h."
+  }
+}
