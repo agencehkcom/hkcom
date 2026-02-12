@@ -4,6 +4,7 @@ import { useLocale } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+
 import { GlassCard } from "@/components/shared/GlassCard";
 import { GlowButton } from "@/components/shared/GlowButton";
 import { AidesShapes } from "@/components/shared/AnimatedShapes";
@@ -255,6 +256,50 @@ export function AidesNumeriques() {
             </GlassCard>
           </motion.div>
         </div>
+
+        {/* France Num Offers */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h3 className="text-xl font-bold text-center mb-8">
+            {locale === "fr" ? "Nos accompagnements pris en charge" : "Our covered support programs"}
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <Image
+                src="/images/marketing/aide-seo.png"
+                alt={locale === "fr" ? "Accompagnement SEO et Google - 100% pris en charge" : "SEO and Google Support - 100% covered"}
+                width={600}
+                height={600}
+                className="w-full h-auto"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <Image
+                src="/images/marketing/aide-reseaux.png"
+                alt={locale === "fr" ? "Accompagnement réseaux sociaux - 100% pris en charge" : "Social Media Support - 100% covered"}
+                width={600}
+                height={600}
+                className="w-full h-auto"
+              />
+            </motion.div>
+          </div>
+        </motion.div>
 
         {/* Bottom Stats */}
         <motion.div

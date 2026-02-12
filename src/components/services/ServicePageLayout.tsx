@@ -384,8 +384,8 @@ export function ServicePageLayout({ locale, service, customHeroVisual, showBrand
                     </Link>
                   </GlowButton>
                   <GlowButton variant="outline" size="lg" asChild>
-                    <Link href="#packages">
-                      {isEn ? "See Packages" : "Voir les offres"}
+                    <Link href="#resultats">
+                      {isEn ? "See Our Results" : "Voir nos résultats"}
                     </Link>
                   </GlowButton>
                 </div>

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { GlassCard } from "@/components/shared/GlassCard";
 import { GlowButton } from "@/components/shared/GlowButton";
-import { Globe, Megaphone, Video, ArrowRight } from "lucide-react";
+import { Globe, Megaphone, Video, Linkedin, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -35,6 +35,15 @@ const services = [
     hoverColor: "group-hover:text-accent",
     hoverGlow: "hover-glow-accent",
   },
+  {
+    key: "linkedin",
+    href: "/services/linkedin",
+    icon: Linkedin,
+    gradient: "from-[#0A66C2] to-[#0A66C2]/70",
+    shadow: "shadow-[#0A66C2]/20",
+    hoverColor: "group-hover:text-[#0A66C2]",
+    hoverGlow: "hover-glow-primary",
+  },
 ];
 
 export function Services() {
@@ -62,7 +71,7 @@ export function Services() {
         </motion.div>
 
         {/* Service Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.key}

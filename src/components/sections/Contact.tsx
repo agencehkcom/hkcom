@@ -12,8 +12,6 @@ import {
   Clock,
   MessageCircle,
   Linkedin,
-  Facebook,
-  Instagram,
   ArrowUpRight,
   Zap,
   Shield,
@@ -22,8 +20,8 @@ import {
 
 const contactInfo = {
   email: "contact@hkcom.fr",
-  phone: "+33 6 XX XX XX XX",
-  address: "Paris, France",
+  phone: "09 72 61 30 92",
+  address: "Grande-Synthe",
   hours: {
     fr: "Lun - Ven : 9h - 18h",
     en: "Mon - Fri: 9am - 6pm",
@@ -31,9 +29,7 @@ const contactInfo = {
 };
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com/company/hkcom", label: "LinkedIn" },
-  { icon: Facebook, href: "https://facebook.com/hkcom", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com/hkcom", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/agence-marketing-hk-com/", label: "LinkedIn" },
 ];
 
 const features = {
@@ -238,13 +234,13 @@ export function Contact() {
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Shield className="w-5 h-5 text-secondary" />
                 <span className="font-semibold text-sm">
-                  {locale === "fr" ? "100% Satisfaction" : "100% Satisfaction"}
+                  {locale === "fr" ? "98% Satisfaction" : "98% Satisfaction"}
                 </span>
               </div>
               <p className="text-xs text-muted-foreground">
                 {locale === "fr"
-                  ? "Plus de 100 clients nous font confiance"
-                  : "More than 100 clients trust us"}
+                  ? "Plus de 200 clients nous font confiance"
+                  : "More than 200 clients trust us"}
               </p>
             </motion.div>
           </motion.div>

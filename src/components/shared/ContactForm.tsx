@@ -13,102 +13,216 @@ import {
   CheckCircle2,
   Loader2,
   Sparkles,
+  Globe,
+  Megaphone,
+  Video,
+  Linkedin,
+  Lightbulb,
+  HelpCircle,
+  Zap,
+  Phone,
+  ChevronRight,
+  ChevronLeft,
+  Calendar,
+  Check,
 } from "lucide-react";
 
 interface FormData {
+  services: string[];
   name: string;
   email: string;
+  phone: string;
   company: string;
   message: string;
-  service: string;
+  budget: string;
 }
 
-const services = {
+const serviceOptions = {
   fr: [
-    { value: "web", label: "Site Web / E-commerce" },
-    { value: "ads", label: "Google Ads / SEO" },
-    { value: "content", label: "Contenu & Réseaux sociaux" },
-    { value: "strategy", label: "Stratégie digitale complète" },
-    { value: "other", label: "Autre projet" },
+    { value: "web", label: "Site Web / E-commerce", desc: "Création ou refonte de site", icon: Globe },
+    { value: "ads", label: "Google Ads / SEO", desc: "Publicité et référencement", icon: Megaphone },
+    { value: "content", label: "Contenu & Réseaux", desc: "Vidéo, photo et community management", icon: Video },
+    { value: "linkedin", label: "Prospection LinkedIn", desc: "Génération de leads B2B", icon: Linkedin },
+    { value: "strategy", label: "Stratégie Digitale", desc: "Accompagnement complet", icon: Lightbulb },
+    { value: "aide-numerique", label: "Aide Numérique", desc: "Dispositif France Num", icon: Zap },
+    { value: "other", label: "Autre Projet", desc: "Parlons-en ensemble", icon: HelpCircle },
   ],
   en: [
-    { value: "web", label: "Website / E-commerce" },
-    { value: "ads", label: "Google Ads / SEO" },
-    { value: "content", label: "Content & Social media" },
-    { value: "strategy", label: "Complete digital strategy" },
-    { value: "other", label: "Other project" },
+    { value: "web", label: "Website / E-commerce", desc: "Website creation or redesign", icon: Globe },
+    { value: "ads", label: "Google Ads / SEO", desc: "Advertising & search ranking", icon: Megaphone },
+    { value: "content", label: "Content & Social", desc: "Video, photo & community management", icon: Video },
+    { value: "linkedin", label: "LinkedIn Prospecting", desc: "B2B lead generation", icon: Linkedin },
+    { value: "strategy", label: "Digital Strategy", desc: "Full-service support", icon: Lightbulb },
+    { value: "aide-numerique", label: "Digital Aid", desc: "France Num program", icon: Zap },
+    { value: "other", label: "Other Project", desc: "Let's talk about it", icon: HelpCircle },
   ],
 };
 
+const budgetOptions = [
+  { value: "< 1 500€", label: "< 1 500€" },
+  { value: "1 500€ - 3 000€", label: "1 500€ - 3 000€" },
+  { value: "3 000€ - 5 000€", label: "3 000€ - 5 000€" },
+  { value: "5 000€ - 10 000€", label: "5 000€ - 10 000€" },
+  { value: "> 10 000€", label: "> 10 000€" },
+];
+
 const translations = {
   fr: {
-    title: "Envoyez-nous un message",
-    subtitle: "Décrivez votre projet et nous vous répondrons sous 24h",
+    step1Title: "Quel service vous intéresse ?",
+    step1Subtitle: "Sélectionnez un ou plusieurs services",
+    step2Title: "Vos coordonnées",
+    step2Subtitle: "Comment pouvons-nous vous contacter ?",
+    step3Title: "Détails du projet",
+    step3Subtitle: "Parlez-nous de votre projet",
     name: "Votre nom",
     email: "Email professionnel",
-    company: "Entreprise",
-    service: "Type de projet",
+    phone: "Téléphone",
+    company: "Entreprise (optionnel)",
     message: "Décrivez votre projet",
+    budget: "Budget estimé",
     submit: "Envoyer le message",
     sending: "Envoi en cours...",
     success: "Message envoyé !",
     successMessage: "Nous vous répondrons dans les 24h.",
+    next: "Suivant",
+    prev: "Retour",
+    stepLabels: ["Service", "Contact", "Projet"],
+    calendly: "Ou réservez directement un appel",
+    selectService: "Sélectionnez au moins un service",
   },
   en: {
-    title: "Send us a message",
-    subtitle: "Describe your project and we'll get back to you within 24h",
+    step1Title: "Which service interests you?",
+    step1Subtitle: "Select one or more services",
+    step2Title: "Your contact info",
+    step2Subtitle: "How can we reach you?",
+    step3Title: "Project details",
+    step3Subtitle: "Tell us about your project",
     name: "Your name",
     email: "Professional email",
-    company: "Company",
-    service: "Project type",
+    phone: "Phone number",
+    company: "Company (optional)",
     message: "Describe your project",
+    budget: "Estimated budget",
     submit: "Send message",
     sending: "Sending...",
     success: "Message sent!",
     successMessage: "We'll get back to you within 24h.",
+    next: "Next",
+    prev: "Back",
+    stepLabels: ["Service", "Contact", "Project"],
+    calendly: "Or book a call directly",
+    selectService: "Select at least one service",
   },
+};
+
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 80 : -80,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -80 : 80,
+    opacity: 0,
+  }),
 };
 
 export function ContactForm() {
   const locale = useLocale() as "fr" | "en";
   const t = translations[locale];
-  const serviceOptions = services[locale];
+  const services = serviceOptions[locale];
 
+  const [step, setStep] = useState(1);
+  const [direction, setDirection] = useState(1);
   const [formData, setFormData] = useState<FormData>({
+    services: [],
     name: "",
     email: "",
+    phone: "",
     company: "",
     message: "",
-    service: "",
+    budget: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
+  const toggleService = (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      services: prev.services.includes(value)
+        ? prev.services.filter((s) => s !== value)
+        : [...prev.services, value],
+    }));
+  };
+
+  const goNext = () => {
+    if (step < 3) {
+      setDirection(1);
+      setStep((s) => s + 1);
+    }
+  };
+
+  const goPrev = () => {
+    if (step > 1) {
+      setDirection(-1);
+      setStep((s) => s - 1);
+    }
+  };
+
+  const canGoNext = () => {
+    if (step === 1) return formData.services.length > 0;
+    if (step === 2) return formData.name.trim() !== "" && formData.email.trim() !== "";
+    return true;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+      if (!res.ok) throw new Error("Erreur envoi");
 
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setIsSuccess(false);
-      setFormData({ name: "", email: "", company: "", message: "", service: "" });
-    }, 3000);
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setStep(1);
+        setFormData({
+          services: [],
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+          budget: "",
+        });
+      }, 3000);
+    } catch {
+      alert(locale === "fr"
+        ? "Une erreur est survenue. Veuillez réessayer ou nous contacter directement."
+        : "An error occurred. Please try again or contact us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClasses = (field: string) => `
     w-full px-4 py-3 rounded-xl
     bg-background/50 backdrop-blur-sm
     border transition-all duration-300
-    ${focusedField === field
-      ? "border-primary/50 shadow-lg shadow-primary/10"
-      : "border-border hover:border-primary/30"
+    ${
+      focusedField === field
+        ? "border-primary/50 shadow-lg shadow-primary/10"
+        : "border-border hover:border-primary/30"
     }
     focus:outline-none focus:border-primary/50 focus:shadow-lg focus:shadow-primary/10
     placeholder:text-muted-foreground/50
@@ -137,155 +251,317 @@ export function ContactForm() {
             <p className="text-muted-foreground">{t.successMessage}</p>
           </motion.div>
         ) : (
-          <motion.form
+          <motion.div
             key="form"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onSubmit={handleSubmit}
-            className="space-y-5"
           >
             {/* Header */}
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-2">
                 <Sparkles className="w-5 h-5 text-secondary" />
-                <h3 className="text-xl font-bold">{t.title}</h3>
+                <h3 className="text-xl font-bold">
+                  {step === 1 ? t.step1Title : step === 2 ? t.step2Title : t.step3Title}
+                </h3>
               </div>
-              <p className="text-sm text-muted-foreground">{t.subtitle}</p>
+              <p className="text-sm text-muted-foreground">
+                {step === 1 ? t.step1Subtitle : step === 2 ? t.step2Subtitle : t.step3Subtitle}
+              </p>
             </div>
 
-            {/* Name & Email Row */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
-                className="relative"
-              >
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
-                <input
-                  type="text"
-                  required
-                  placeholder={t.name}
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  onFocus={() => setFocusedField("name")}
-                  onBlur={() => setFocusedField(null)}
-                  className={`${inputClasses("name")} pl-11`}
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.15 }}
-                className="relative"
-              >
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
-                <input
-                  type="email"
-                  required
-                  placeholder={t.email}
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  onFocus={() => setFocusedField("email")}
-                  onBlur={() => setFocusedField(null)}
-                  className={`${inputClasses("email")} pl-11`}
-                />
-              </motion.div>
+            {/* Progress Bar */}
+            <div className="flex items-center gap-2 mb-8">
+              {[1, 2, 3].map((s) => (
+                <div key={s} className="flex-1 flex items-center gap-2">
+                  <div className="flex-1 relative">
+                    <div className="h-1.5 rounded-full bg-border/50 overflow-hidden">
+                      <motion.div
+                        className="h-full rounded-full bg-gradient-to-r from-primary to-secondary"
+                        initial={false}
+                        animate={{ width: s <= step ? "100%" : "0%" }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                      />
+                    </div>
+                  </div>
+                  <motion.div
+                    className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 transition-colors duration-300 ${
+                      s < step
+                        ? "bg-secondary text-white"
+                        : s === step
+                          ? "bg-primary text-white"
+                          : "bg-border/30 text-muted-foreground"
+                    }`}
+                    animate={s === step ? { scale: [1, 1.15, 1] } : {}}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {s < step ? <Check className="w-3.5 h-3.5" /> : s}
+                  </motion.div>
+                </div>
+              ))}
             </div>
 
-            {/* Company & Service Row */}
-            <div className="grid sm:grid-cols-2 gap-4">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="relative"
-              >
-                <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
-                <input
-                  type="text"
-                  placeholder={t.company}
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  onFocus={() => setFocusedField("company")}
-                  onBlur={() => setFocusedField(null)}
-                  className={`${inputClasses("company")} pl-11`}
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.25 }}
-              >
-                <select
-                  required
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  onFocus={() => setFocusedField("service")}
-                  onBlur={() => setFocusedField(null)}
-                  className={`${inputClasses("service")} appearance-none cursor-pointer`}
+            {/* Step Labels */}
+            <div className="flex justify-between mb-6 px-1">
+              {t.stepLabels.map((label, i) => (
+                <span
+                  key={i}
+                  className={`text-xs font-medium transition-colors duration-300 ${
+                    i + 1 <= step ? "text-primary" : "text-muted-foreground/50"
+                  }`}
                 >
-                  <option value="" disabled>
-                    {t.service}
-                  </option>
-                  {serviceOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </motion.div>
+                  {label}
+                </span>
+              ))}
             </div>
 
-            {/* Message */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="relative"
-            >
-              <MessageSquare className="absolute left-4 top-4 w-4 h-4 text-muted-foreground/50" />
-              <textarea
-                required
-                rows={4}
-                placeholder={t.message}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                onFocus={() => setFocusedField("message")}
-                onBlur={() => setFocusedField(null)}
-                className={`${inputClasses("message")} pl-11 resize-none`}
-              />
-            </motion.div>
-
-            {/* Submit Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35 }}
-            >
-              <GlowButton
-                type="submit"
-                size="lg"
-                className="w-full"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    {t.sending}
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    {t.submit}
-                  </>
+            {/* Steps Content */}
+            <form onSubmit={handleSubmit}>
+              <AnimatePresence mode="wait" custom={direction}>
+                {/* Step 1 — Service Selection */}
+                {step === 1 && (
+                  <motion.div
+                    key="step1"
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="grid grid-cols-2 sm:grid-cols-3 gap-3"
+                  >
+                    {services.map((service) => {
+                      const isSelected = formData.services.includes(service.value);
+                      const Icon = service.icon;
+                      return (
+                        <motion.button
+                          key={service.value}
+                          type="button"
+                          onClick={() => toggleService(service.value)}
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
+                          className={`relative p-4 rounded-xl border-2 text-left transition-all duration-300 cursor-pointer ${
+                            isSelected
+                              ? "border-primary bg-primary/10 shadow-lg shadow-primary/10"
+                              : "border-border/50 bg-background/30 hover:border-primary/30 hover:bg-primary/5"
+                          }`}
+                        >
+                          {isSelected && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="absolute top-2 right-2 w-5 h-5 rounded-full bg-primary flex items-center justify-center"
+                            >
+                              <Check className="w-3 h-3 text-white" />
+                            </motion.div>
+                          )}
+                          <Icon
+                            className={`w-6 h-6 mb-2 transition-colors ${
+                              isSelected ? "text-primary" : "text-muted-foreground"
+                            }`}
+                          />
+                          <div className="font-semibold text-sm leading-tight mb-1">
+                            {service.label}
+                          </div>
+                          <div className="text-xs text-muted-foreground leading-tight">
+                            {service.desc}
+                          </div>
+                        </motion.button>
+                      );
+                    })}
+                  </motion.div>
                 )}
-              </GlowButton>
-            </motion.div>
-          </motion.form>
+
+                {/* Step 2 — Contact Info */}
+                {step === 2 && (
+                  <motion.div
+                    key="step2"
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="space-y-4"
+                  >
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="relative">
+                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                        <input
+                          type="text"
+                          required
+                          placeholder={t.name}
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          onFocus={() => setFocusedField("name")}
+                          onBlur={() => setFocusedField(null)}
+                          className={`${inputClasses("name")} pl-11`}
+                        />
+                      </div>
+                      <div className="relative">
+                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                        <input
+                          type="email"
+                          required
+                          placeholder={t.email}
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          onFocus={() => setFocusedField("email")}
+                          onBlur={() => setFocusedField(null)}
+                          className={`${inputClasses("email")} pl-11`}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="relative">
+                        <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                        <input
+                          type="tel"
+                          placeholder={t.phone}
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onFocus={() => setFocusedField("phone")}
+                          onBlur={() => setFocusedField(null)}
+                          className={`${inputClasses("phone")} pl-11`}
+                        />
+                      </div>
+                      <div className="relative">
+                        <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/50" />
+                        <input
+                          type="text"
+                          placeholder={t.company}
+                          value={formData.company}
+                          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                          onFocus={() => setFocusedField("company")}
+                          onBlur={() => setFocusedField(null)}
+                          className={`${inputClasses("company")} pl-11`}
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Step 3 — Project Details */}
+                {step === 3 && (
+                  <motion.div
+                    key="step3"
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="space-y-5"
+                  >
+                    <div className="relative">
+                      <MessageSquare className="absolute left-4 top-4 w-4 h-4 text-muted-foreground/50" />
+                      <textarea
+                        rows={4}
+                        placeholder={t.message}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onFocus={() => setFocusedField("message")}
+                        onBlur={() => setFocusedField(null)}
+                        className={`${inputClasses("message")} pl-11 resize-none`}
+                      />
+                    </div>
+
+                    {/* Budget Chips */}
+                    <div>
+                      <label className="text-sm font-medium text-muted-foreground mb-3 block">
+                        {t.budget}
+                      </label>
+                      <div className="flex flex-wrap gap-2">
+                        {budgetOptions.map((option) => (
+                          <motion.button
+                            key={option.value}
+                            type="button"
+                            onClick={() =>
+                              setFormData((prev) => ({
+                                ...prev,
+                                budget: prev.budget === option.value ? "" : option.value,
+                              }))
+                            }
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 cursor-pointer ${
+                              formData.budget === option.value
+                                ? "border-primary bg-primary/10 text-primary shadow-md shadow-primary/10"
+                                : "border-border/50 text-muted-foreground hover:border-primary/30 hover:bg-primary/5"
+                            }`}
+                          >
+                            {option.label}
+                          </motion.button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Calendly CTA */}
+                    <div className="p-4 rounded-xl bg-gradient-to-br from-secondary/10 to-secondary/5 border border-secondary/20">
+                      <a
+                        href="https://calendly.com/hkcom/appel-de-decouverte"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 text-sm font-medium text-secondary hover:text-secondary/80 transition-colors"
+                      >
+                        <Calendar className="w-4 h-4" />
+                        {t.calendly}
+                        <ChevronRight className="w-4 h-4" />
+                      </a>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Navigation Buttons */}
+              <div className="flex items-center justify-between mt-8 gap-4">
+                {step > 1 ? (
+                  <GlowButton
+                    type="button"
+                    variant="outline"
+                    size="md"
+                    onClick={goPrev}
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    {t.prev}
+                  </GlowButton>
+                ) : (
+                  <div />
+                )}
+
+                {step < 3 ? (
+                  <GlowButton
+                    type="button"
+                    size="md"
+                    onClick={goNext}
+                    disabled={!canGoNext()}
+                  >
+                    {t.next}
+                    <ChevronRight className="w-4 h-4" />
+                  </GlowButton>
+                ) : (
+                  <GlowButton
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        {t.sending}
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        {t.submit}
+                      </>
+                    )}
+                  </GlowButton>
+                )}
+              </div>
+            </form>
+          </motion.div>
         )}
       </AnimatePresence>
 

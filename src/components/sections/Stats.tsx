@@ -8,7 +8,7 @@ import { useRef } from "react";
 import { Users, FolderCheck, ThumbsUp, Clock } from "lucide-react";
 
 const stats = [
-  { key: "clients", icon: Users, value: 100, suffix: "+" },
+  { key: "clients", icon: Users, value: 200, suffix: "+" },
   { key: "projects", icon: FolderCheck, value: 150, suffix: "+" },
   { key: "satisfaction", icon: ThumbsUp, value: 98, suffix: "%" },
   { key: "experience", icon: Clock, value: 5, suffix: "+" },

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { LocaleSwitcher } from "./LocaleSwitcher";
@@ -14,9 +14,8 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: "/", label: "home" },
   { href: "/#services", label: "services" },
-  { href: "/#portfolio", label: "portfolio" },
   { href: "/#aides-numeriques", label: "subsidies" },
-  { href: "/blog", label: "blog" },
+  { href: "/webinaires", label: "webinaires" },
   { href: "/#contact", label: "contact" },
 ] as const;
 
@@ -33,6 +32,8 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const [showPhone, setShowPhone] = useState(false);
 
   return (
     <>
@@ -87,8 +88,33 @@ export function Header() {
             <div className="hidden lg:flex items-center gap-3">
               <ThemeToggle />
               <LocaleSwitcher />
+
+              {/* Contact button with phone on hover */}
+              <div
+                className="relative"
+                onMouseEnter={() => setShowPhone(true)}
+                onMouseLeave={() => setShowPhone(false)}
+              >
+                <a
+                  href="tel:+33972613092"
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all",
+                    "border border-border hover:border-primary/50 hover:bg-primary/5"
+                  )}
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>{showPhone ? t("phone") : t("contact")}</span>
+                </a>
+              </div>
+
               <GlowButton size="sm" asChild>
-                <Link href="/#contact">{t("cta")}</Link>
+                <a
+                  href="https://calendly.com/hkcom/appel-de-decouverte"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("cta")}
+                </a>
               </GlowButton>
             </div>
 
@@ -153,12 +179,14 @@ export function Header() {
                   <ThemeToggle />
                   <LocaleSwitcher />
                   <GlowButton asChild className="flex-1">
-                    <Link
-                      href="/#contact"
+                    <a
+                      href="https://calendly.com/hkcom/appel-de-decouverte"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {t("cta")}
-                    </Link>
+                    </a>
                   </GlowButton>
                 </div>
               </div>

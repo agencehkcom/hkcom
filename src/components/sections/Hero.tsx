@@ -14,6 +14,7 @@ import {
   Code2,
   Palette,
   Rocket,
+  Star,
 } from "lucide-react";
 
 const brands = [
@@ -217,22 +218,84 @@ export function Hero() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <GlowButton size="lg" asChild>
-                <Link href="/#contact" className="flex items-center gap-2">
+                <a
+                  href="https://calendly.com/hkcom/appel-de-decouverte"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
                   {t("cta.primary")}
                   <ArrowRight className="w-5 h-5" />
-                </Link>
+                </a>
               </GlowButton>
               <GlowButton variant="outline" size="lg" asChild>
-                <Link href="/#strategies">{t("cta.secondary")}</Link>
+                <Link href="/#services">{t("cta.secondary")}</Link>
               </GlowButton>
+            </motion.div>
+
+            {/* Trust Badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-10"
+            >
+              {/* France Num */}
+              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/50 border border-border/50">
+                <div className="relative w-7 h-7 flex-shrink-0">
+                  <Image
+                    src="/images/marque-Activateur-France-Num-72dpi.jpeg"
+                    alt="Activateur France Num"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">France Num</span>
+              </div>
+
+              {/* Google Partner */}
+              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/50 border border-border/50">
+                <div className="relative w-7 h-7 flex-shrink-0">
+                  <Image
+                    src="/images/certifications/google-partner.png"
+                    alt="Google Partner"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">Google Partner</span>
+              </div>
+
+              {/* Meta Partner */}
+              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/50 border border-border/50">
+                <div className="relative w-7 h-7 flex-shrink-0">
+                  <Image
+                    src="/images/certifications/meta-partner.png"
+                    alt="Meta Business Partner"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">Meta Partner</span>
+              </div>
+
+              {/* 5 Stars Google Reviews */}
+              <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/50 border border-border/50">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">5/5 Google</span>
+              </div>
             </motion.div>
 
             {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-8 mt-12"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap justify-center lg:justify-start gap-8 mt-8"
             >
               <div className="text-center lg:text-left">
                 <motion.div

@@ -5,13 +5,13 @@
   },
   "nav": {
     "home": "Accueil",
-    "strategies": "Stratégies MAX",
     "services": "Services",
     "portfolio": "Portfolio",
-    "blog": "Blog",
+    "webinaires": "Webinaires",
     "subsidies": "Aides Numériques",
     "contact": "Contact",
-    "cta": "Appel Découverte"
+    "cta": "Appel de Découverte",
+    "phone": "09 72 61 30 92"
   },
   "hero": {
     "badge": "-50% sur votre site web",
@@ -19,11 +19,11 @@
     "titleHighlight": "Digital",
     "subtitle": "Votre partenaire digital de proximité dans le Nord-Pas-de-Calais. On se déplace chez vous !",
     "cta": {
-      "primary": "Réserver un appel",
-      "secondary": "Voir nos stratégies"
+      "primary": "Appel de Découverte",
+      "secondary": "Voir nos services"
     },
     "stats": {
-      "clients": "+100",
+      "clients": "+200",
       "clientsLabel": "Clients satisfaits",
       "satisfaction": "98%",
       "satisfactionLabel": "Satisfaction",
@@ -34,27 +34,6 @@
   "brands": {
     "title": "Ils nous font confiance",
     "subtitle": "Des entreprises du Nord-Pas-de-Calais nous ont choisi pour leur transformation digitale"
-  },
-  "strategies": {
-    "title": "Nos Stratégies",
-    "titleHighlight": "MAX",
-    "subtitle": "Trois approches complètes pour maximiser votre présence en ligne",
-    "clientMax": {
-      "title": "Client MAX",
-      "description": "Site web professionnel + Google Ads pour attirer et convertir vos prospects en clients",
-      "features": ["Site web sur mesure", "Campagne Google Ads", "Suivi des conversions", "Support dédié"]
-    },
-    "impactMax": {
-      "title": "Impact MAX",
-      "description": "Campagnes LinkedIn automatisées pour développer votre réseau B2B et générer des leads qualifiés",
-      "features": ["Automatisation LinkedIn", "Ciblage précis", "Messages personnalisés", "Reporting mensuel"]
-    },
-    "visibilityMax": {
-      "title": "Visibilité MAX",
-      "description": "Contenu audiovisuel publicitaire pour marquer les esprits et booster votre notoriété",
-      "features": ["Vidéos publicitaires", "Photos professionnelles", "Réseaux sociaux", "Stratégie de contenu"]
-    },
-    "cta": "En savoir plus"
   },
   "services": {
     "title": "Nos Services",
@@ -72,6 +51,10 @@
     "content": {
       "title": "Contenu Audiovisuel",
       "description": "Production vidéo et photo professionnelle pour votre communication"
+    },
+    "linkedin": {
+      "title": "Prospection LinkedIn",
+      "description": "Stratégie de prospection automatisée sur LinkedIn pour générer des leads B2B qualifiés"
     }
   },
   "timeline": {
@@ -98,18 +81,19 @@
   },
   "portfolio": {
     "title": "Nos Réalisations",
-    "subtitle": "Découvrez quelques-uns de nos projets récents",
-    "viewProject": "Voir le projet",
+    "subtitle": "Découvrez les projets réalisés pour nos clients du Nord-Pas-de-Calais",
+    "clientCount": "clients",
     "categories": {
       "all": "Tous",
       "web": "Sites Web",
-      "ecommerce": "E-commerce",
-      "branding": "Branding"
+      "ads": "Campagnes Pub",
+      "content": "Vidéo & Contenu",
+      "branding": "Logo & Identité"
     }
   },
   "stats": {
     "clients": {
-      "value": "100+",
+      "value": "200+",
       "label": "Clients satisfaits"
     },
     "projects": {

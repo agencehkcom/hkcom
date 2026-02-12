@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { VideoBubble } from "@/components/shared/VideoBubble";
+import { AnnouncementPopup } from "@/components/shared/AnnouncementPopup";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -135,8 +135,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <NextIntlClientProvider messages={messages}>
       <div className="relative flex min-h-screen flex-col">{children}</div>
-      {/* Bulle vidéo VideoAsk - Remplacer l'ID par ton ID VideoAsk */}
-      <VideoBubble videoAskId="/YOUR_VIDEOASK_ID" delay={3000} />
+      <AnnouncementPopup />
     </NextIntlClientProvider>
   );
 }

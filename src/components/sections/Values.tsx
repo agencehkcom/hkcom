@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { GlassCard } from "@/components/shared/GlassCard";
 import {
   Shield,
@@ -48,7 +47,6 @@ const values = [
 
 export function Values() {
   const t = useTranslations("values");
-  const tCert = useTranslations("certifications");
 
   return (
     <section id="values" className="py-24 relative overflow-hidden">
@@ -72,7 +70,7 @@ export function Values() {
         </motion.div>
 
         {/* Values Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {values.map((value, index) => (
             <motion.div
               key={value.key}
@@ -102,50 +100,6 @@ export function Values() {
             </motion.div>
           ))}
         </div>
-
-        {/* Certifications Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
-            <Award className="w-4 h-4 text-secondary" />
-            <span className="text-sm font-medium">{tCert("badge")}</span>
-          </div>
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
-            {tCert("title")} <span className="text-gradient">{tCert("titleHighlight")}</span>
-          </h3>
-          <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-            {tCert("subtitle")}
-          </p>
-
-          {/* Certifications & Press Images */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Certifications Image */}
-            <div className="relative rounded-2xl overflow-hidden glass p-2">
-              <Image
-                src="/images/HKCOM-Certifications.webp"
-                alt="HKCOM Certifications"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-xl"
-              />
-            </div>
-
-            {/* Press Article Image */}
-            <div className="relative rounded-2xl overflow-hidden glass p-2">
-              <Image
-                src="/images/HKCOM-Prestige.png"
-                alt="HKCOM dans la presse"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-xl"
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

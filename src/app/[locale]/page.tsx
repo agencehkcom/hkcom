@@ -6,7 +6,10 @@ import { Services } from "@/components/sections/Services";
 import { Portfolio } from "@/components/sections/Portfolio";
 import { Values } from "@/components/sections/Values";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
+import { SuccessStories } from "@/components/sections/SuccessStories";
 import { Timeline } from "@/components/sections/Timeline";
+import { Team } from "@/components/sections/Team";
+import { Certifications } from "@/components/sections/Certifications";
 import { AidesNumeriques } from "@/components/sections/AidesNumeriques";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
@@ -32,6 +35,9 @@ export default async function HomePage({ params }: Props) {
         <Portfolio />
         <Timeline />
         <GoogleReviews />
+        <SuccessStories />
+        <Team />
+        <Certifications />
         <Values />
         <AidesNumeriques />
         <FAQ />

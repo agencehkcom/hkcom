@@ -4,13 +4,10 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com/hkcom", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com/hkcom", label: "Instagram" },
-  { icon: Linkedin, href: "https://linkedin.com/company/hkcom", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com/hkcom", label: "Twitter" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/agence-marketing-hk-com/", label: "LinkedIn" },
 ];
 
 export function Footer() {
@@ -68,7 +65,7 @@ export function Footer() {
           >
             <h3 className="font-semibold mb-4">{t("quickLinks")}</h3>
             <ul className="space-y-3">
-              {["home", "strategies", "services", "portfolio", "blog"].map(
+              {["home", "services", "portfolio"].map(
                 (item) => (
                   <li key={item}>
                     <Link
@@ -104,20 +101,20 @@ export function Footer() {
               <li className="flex items-center gap-3 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
                 <a
-                  href="tel:+33600000000"
+                  href="tel:+33972613092"
                   className="hover:text-primary transition-colors"
                 >
-                  +33 6 00 00 00 00
+                  09 72 61 30 92
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                <span>France</span>
+                <span>19 bis Rue de l&apos;Orangerie, 59760 Grande-Synthe</span>
               </li>
             </ul>
           </motion.div>
 
-          {/* Social & Certifications */}
+          {/* Social */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +122,7 @@ export function Footer() {
             transition={{ delay: 0.3 }}
           >
             <h3 className="font-semibold mb-4">Social</h3>
-            <div className="flex gap-3 mb-6">
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -138,18 +135,6 @@ export function Footer() {
                   <social.icon className="w-5 h-5" />
                 </a>
               ))}
-            </div>
-
-            {/* Certification Badge */}
-            <div className="p-3 rounded-xl glass border border-primary/20">
-              <div className="relative h-12 w-full">
-                <Image
-                  src="/images/HKCOM-Prestige.png"
-                  alt="HKCOM Prestige"
-                  fill
-                  className="object-contain"
-                />
-              </div>
             </div>
           </motion.div>
         </div>

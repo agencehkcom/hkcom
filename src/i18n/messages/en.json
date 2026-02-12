@@ -5,13 +5,13 @@
   },
   "nav": {
     "home": "Home",
-    "strategies": "MAX Strategies",
     "services": "Services",
     "portfolio": "Portfolio",
-    "blog": "Blog",
+    "webinaires": "Webinars",
     "subsidies": "Digital Subsidies",
     "contact": "Contact",
-    "cta": "Discovery Call"
+    "cta": "Discovery Call",
+    "phone": "09 72 61 30 92"
   },
   "hero": {
     "badge": "-50% on your website",
@@ -19,11 +19,11 @@
     "titleHighlight": "Ecosystem",
     "subtitle": "Your local digital partner in Nord-Pas-de-Calais. We come to you!",
     "cta": {
-      "primary": "Book a call",
-      "secondary": "See our strategies"
+      "primary": "Discovery Call",
+      "secondary": "See our services"
     },
     "stats": {
-      "clients": "+100",
+      "clients": "+200",
       "clientsLabel": "Happy clients",
       "satisfaction": "98%",
       "satisfactionLabel": "Satisfaction",
@@ -34,27 +34,6 @@
   "brands": {
     "title": "They trust us",
     "subtitle": "Businesses in Nord-Pas-de-Calais have chosen us for their digital transformation"
-  },
-  "strategies": {
-    "title": "Our",
-    "titleHighlight": "MAX Strategies",
-    "subtitle": "Three complete approaches to maximize your online presence",
-    "clientMax": {
-      "title": "Client MAX",
-      "description": "Professional website + Google Ads to attract and convert prospects into customers",
-      "features": ["Custom website", "Google Ads campaign", "Conversion tracking", "Dedicated support"]
-    },
-    "impactMax": {
-      "title": "Impact MAX",
-      "description": "Automated LinkedIn campaigns to grow your B2B network and generate qualified leads",
-      "features": ["LinkedIn automation", "Precise targeting", "Personalized messages", "Monthly reporting"]
-    },
-    "visibilityMax": {
-      "title": "Visibility MAX",
-      "description": "Advertising audiovisual content to make an impact and boost your brand awareness",
-      "features": ["Advertising videos", "Professional photos", "Social media", "Content strategy"]
-    },
-    "cta": "Learn more"
   },
   "services": {
     "title": "Our Services",
@@ -72,6 +51,10 @@
     "content": {
       "title": "Audiovisual Content",
       "description": "Professional video and photo production for your communication"
+    },
+    "linkedin": {
+      "title": "LinkedIn Prospecting",
+      "description": "Automated LinkedIn prospecting strategy to generate qualified B2B leads"
     }
   },
   "timeline": {
@@ -98,18 +81,19 @@
   },
   "portfolio": {
     "title": "Our Work",
-    "subtitle": "Discover some of our recent projects",
-    "viewProject": "View project",
+    "subtitle": "Discover the projects we delivered for our clients in Nord-Pas-de-Calais",
+    "clientCount": "clients",
     "categories": {
       "all": "All",
       "web": "Websites",
-      "ecommerce": "E-commerce",
-      "branding": "Branding"
+      "ads": "Ad Campaigns",
+      "content": "Video & Content",
+      "branding": "Logo & Branding"
     }
   },
   "stats": {
     "clients": {
-      "value": "100+",
+      "value": "200+",
       "label": "Happy clients"
     },
     "projects": {

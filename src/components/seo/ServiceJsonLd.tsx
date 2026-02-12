@@ -4,7 +4,7 @@ interface ServiceJsonLdProps {
   locale: "fr" | "en";
   serviceName: string;
   serviceDescription: string;
-  serviceType: "web" | "ads" | "content";
+  serviceType: "web" | "ads" | "content" | "linkedin";
   priceRange: string;
 }
 
@@ -22,12 +22,14 @@ export function ServiceJsonLd({
     web: `${baseUrl}/${locale}/services/web`,
     ads: `${baseUrl}/${locale}/services/ads`,
     content: `${baseUrl}/${locale}/services/content`,
+    linkedin: `${baseUrl}/${locale}/services/linkedin`,
   };
 
   const serviceCategories = {
     web: isEn ? "Web Development" : "Développement Web",
     ads: isEn ? "Digital Advertising" : "Publicité Digitale",
     content: isEn ? "Video Production" : "Production Vidéo",
+    linkedin: isEn ? "LinkedIn Prospecting" : "Prospection LinkedIn",
   };
 
   const jsonLd = {
@@ -129,7 +131,7 @@ export function ServiceJsonLd({
   );
 }
 
-function getOffersByType(type: "web" | "ads" | "content", isEn: boolean) {
+function getOffersByType(type: "web" | "ads" | "content" | "linkedin", isEn: boolean) {
   const offers = {
     web: [
       {
@@ -231,6 +233,44 @@ function getOffersByType(type: "web" | "ads" | "content", isEn: boolean) {
         },
         price: "2500",
         priceCurrency: "EUR",
+      },
+    ],
+    linkedin: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: isEn ? "Starter Prospecting" : "Prospection Démarrage",
+          description: isEn
+            ? "Profile optimization, 200 invitations/month"
+            : "Optimisation profil, 200 invitations/mois",
+        },
+        price: "500",
+        priceCurrency: "EUR",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "500",
+          priceCurrency: "EUR",
+          unitText: isEn ? "per month" : "par mois",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: isEn ? "Growth Prospecting" : "Prospection Croissance",
+          description: isEn
+            ? "Full automation, 500 invitations/month, content strategy"
+            : "Automatisation complète, 500 invitations/mois, stratégie de contenu",
+        },
+        price: "1000",
+        priceCurrency: "EUR",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "1000",
+          priceCurrency: "EUR",
+          unitText: isEn ? "per month" : "par mois",
+        },
       },
     ],
   };

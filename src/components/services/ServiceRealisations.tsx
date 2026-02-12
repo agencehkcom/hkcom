@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { GlassCard } from "@/components/shared/GlassCard";
 import {
-  ExternalLink,
   TrendingUp,
   Eye,
   MousePointer2,
@@ -13,52 +12,30 @@ import {
   Heart,
   Share2,
   Users,
+  MessageSquare,
+  UserPlus,
+  CalendarCheck,
 } from "lucide-react";
-
-// Types
-interface WebProject {
-  title: string;
-  image: string;
-  description: string;
-  tags: string[];
-  url?: string;
-  stats?: { label: string; value: string }[];
-}
-
-interface AdsProject {
-  title: string;
-  platform: "google" | "meta" | "linkedin";
-  description: string;
-  metrics: {
-    impressions: string;
-    clicks: string;
-    conversions: string;
-    roas: string;
-  };
-  industry: string;
-}
-
-interface ContentProject {
-  title: string;
-  thumbnail: string;
-  type: "video" | "photo" | "reel";
-  description: string;
-  stats: {
-    views?: string;
-    likes?: string;
-    shares?: string;
-  };
-  duration?: string;
-}
 
 // ============================================
 // WEB REALISATIONS
 // ============================================
+interface WebProject {
+  title: string;
+  image: string;
+  description: { fr: string; en: string };
+  tags: string[];
+  stats?: { label: string; value: string }[];
+}
+
 const webProjects: WebProject[] = [
   {
     title: "Maamri Halles",
     image: "/images/portfolio/maamri.jpg",
-    description: "Site vitrine pour un service traiteur haut de gamme",
+    description: {
+      fr: "Site vitrine pour un service traiteur haut de gamme",
+      en: "Showcase website for a premium catering service",
+    },
     tags: ["Site vitrine", "E-commerce"],
     stats: [
       { label: "Conversion", value: "+45%" },
@@ -68,7 +45,10 @@ const webProjects: WebProject[] = [
   {
     title: "Restaurant Papylles",
     image: "/images/portfolio/papylles.png",
-    description: "Site web avec réservation en ligne pour restaurant gastronomique",
+    description: {
+      fr: "Site web avec réservation en ligne pour le restaurant gastronomique du Chef Thomas Briandet",
+      en: "Website with online booking for Chef Thomas Briandet's gourmet restaurant",
+    },
     tags: ["Site vitrine", "Réservation"],
     stats: [
       { label: "Réservations", value: "+80%" },
@@ -78,7 +58,10 @@ const webProjects: WebProject[] = [
   {
     title: "L'École des Pros",
     image: "/images/portfolio/lecole-des-pros.png",
-    description: "Plateforme de formation professionnelle avec espace membre",
+    description: {
+      fr: "Plateforme de formation professionnelle avec espace membre",
+      en: "Professional training platform with member area",
+    },
     tags: ["Plateforme", "LMS"],
     stats: [
       { label: "Étudiants", value: "500+" },
@@ -86,13 +69,29 @@ const webProjects: WebProject[] = [
     ],
   },
   {
+    title: "Chef Event",
+    image: "/images/portfolio/chef-event.png",
+    description: {
+      fr: "Site e-commerce avec réservation en ligne pour un service de chef cuisinier à domicile",
+      en: "E-commerce website with online booking for a private chef service",
+    },
+    tags: ["E-commerce", "Booking"],
+    stats: [
+      { label: "Réservations", value: "+95%" },
+      { label: "Trafic", value: "+150%" },
+    ],
+  },
+  {
     title: "Coop Bazar",
     image: "/images/portfolio/coop-bazar.png",
-    description: "Marketplace e-commerce pour produits locaux et artisanaux",
-    tags: ["E-commerce", "Marketplace"],
+    description: {
+      fr: "Site vitrine pour une boutique de produits orientaux à Grande-Synthe",
+      en: "Showcase website for an oriental products store in Grande-Synthe",
+    },
+    tags: ["Site vitrine", "Catalogue"],
     stats: [
-      { label: "Produits", value: "1000+" },
-      { label: "Ventes", value: "+200%" },
+      { label: "Visites", value: "+200%" },
+      { label: "Ventes", value: "+85%" },
     ],
   },
 ];
@@ -101,7 +100,7 @@ export function WebRealisations({ locale }: { locale: "fr" | "en" }) {
   const isEn = locale === "en";
 
   return (
-    <section className="py-24 relative">
+    <section id="resultats" className="py-24 relative scroll-mt-20">
       <div className="absolute inset-0 bg-mesh opacity-20" />
       <div className="container mx-auto px-4 relative">
         {/* Header */}
@@ -180,7 +179,7 @@ export function WebRealisations({ locale }: { locale: "fr" | "en" }) {
                     {project.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    {project.description}
+                    {project.description[locale]}
                   </p>
                 </div>
               </GlassCard>
@@ -195,54 +194,79 @@ export function WebRealisations({ locale }: { locale: "fr" | "en" }) {
 // ============================================
 // ADS REALISATIONS
 // ============================================
+interface AdsProject {
+  title: string;
+  platform: "google" | "meta" | "linkedin";
+  description: { fr: string; en: string };
+  metrics: {
+    impressions: string;
+    clicks: string;
+    conversions: string;
+    roas: string;
+  };
+  industry: { fr: string; en: string };
+}
+
 const adsProjects: AdsProject[] = [
   {
-    title: "Restaurant Le Gourmet",
+    title: "Chef Event",
+    platform: "google",
+    description: {
+      fr: "Campagnes Google Ads ciblées pour générer des réservations de chef à domicile",
+      en: "Targeted Google Ads campaigns to generate private chef bookings",
+    },
+    metrics: {
+      impressions: "185K",
+      clicks: "6.8K",
+      conversions: "287",
+      roas: "5.2x",
+    },
+    industry: { fr: "Événementiel", en: "Events" },
+  },
+  {
+    title: "Restaurant Papylles",
+    platform: "google",
+    description: {
+      fr: "Campagnes de réservation pour restaurant gastronomique à Dunkerque",
+      en: "Booking campaigns for a gourmet restaurant in Dunkirk",
+    },
+    metrics: {
+      impressions: "142K",
+      clicks: "5.1K",
+      conversions: "198",
+      roas: "4.8x",
+    },
+    industry: { fr: "Restauration", en: "Restaurant" },
+  },
+  {
+    title: "Coop Bazar",
     platform: "meta",
-    description: "Campagne de réservations pour restaurant étoilé",
-    metrics: {
-      impressions: "245K",
-      clicks: "8.2K",
-      conversions: "312",
-      roas: "4.5x",
+    description: {
+      fr: "Campagnes réseaux sociaux et Google Ads pour boutique de produits orientaux",
+      en: "Social media and Google Ads campaigns for an oriental products store",
     },
-    industry: "Restauration",
-  },
-  {
-    title: "Boutique Mode Paris",
-    platform: "google",
-    description: "Campagne Shopping pour e-commerce mode",
-    metrics: {
-      impressions: "1.2M",
-      clicks: "45K",
-      conversions: "1,847",
-      roas: "6.2x",
-    },
-    industry: "E-commerce",
-  },
-  {
-    title: "Cabinet Conseil RH",
-    platform: "linkedin",
-    description: "Génération de leads B2B qualifiés",
-    metrics: {
-      impressions: "89K",
-      clicks: "2.1K",
-      conversions: "156",
-      roas: "8.1x",
-    },
-    industry: "B2B Services",
-  },
-  {
-    title: "Agence Immobilière",
-    platform: "google",
-    description: "Campagne locale pour mandats exclusifs",
     metrics: {
       impressions: "320K",
       clicks: "12K",
-      conversions: "234",
-      roas: "5.8x",
+      conversions: "456",
+      roas: "3.9x",
     },
-    industry: "Immobilier",
+    industry: { fr: "Commerce", en: "Retail" },
+  },
+  {
+    title: "Maamri Halles",
+    platform: "meta",
+    description: {
+      fr: "Campagnes publicitaires pour un service traiteur haut de gamme",
+      en: "Advertising campaigns for a premium catering service",
+    },
+    metrics: {
+      impressions: "210K",
+      clicks: "7.5K",
+      conversions: "312",
+      roas: "4.1x",
+    },
+    industry: { fr: "Traiteur", en: "Catering" },
   },
 ];
 
@@ -283,7 +307,7 @@ export function AdsRealisations({ locale }: { locale: "fr" | "en" }) {
   const isEn = locale === "en";
 
   return (
-    <section className="py-24 relative">
+    <section id="resultats" className="py-24 relative scroll-mt-20">
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5" />
       <div className="container mx-auto px-4 relative">
         {/* Header */}
@@ -320,16 +344,20 @@ export function AdsRealisations({ locale }: { locale: "fr" | "en" }) {
                     <div className="flex items-center gap-2 mb-1">
                       {platformLogos[project.platform]}
                       <span className="text-xs text-muted-foreground uppercase tracking-wide">
-                        {project.platform === "meta" ? "Meta Ads" : project.platform === "google" ? "Google Ads" : "LinkedIn Ads"}
+                        {project.platform === "meta"
+                          ? "Meta Ads"
+                          : project.platform === "google"
+                            ? "Google Ads"
+                            : "LinkedIn Ads"}
                       </span>
                     </div>
                     <h3 className="text-lg font-bold">{project.title}</h3>
                     <p className="text-sm text-muted-foreground">
-                      {project.description}
+                      {project.description[locale]}
                     </p>
                   </div>
                   <span className="text-xs px-2 py-1 rounded-full bg-secondary/10 text-secondary font-medium">
-                    {project.industry}
+                    {project.industry[locale]}
                   </span>
                 </div>
 
@@ -337,23 +365,39 @@ export function AdsRealisations({ locale }: { locale: "fr" | "en" }) {
                 <div className="grid grid-cols-4 gap-3 mt-4">
                   <div className="text-center p-3 rounded-xl bg-white/5">
                     <Eye className="w-4 h-4 mx-auto mb-1 text-blue-400" />
-                    <div className="text-lg font-bold">{project.metrics.impressions}</div>
-                    <div className="text-[10px] text-muted-foreground">Impressions</div>
+                    <div className="text-lg font-bold">
+                      {project.metrics.impressions}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      Impressions
+                    </div>
                   </div>
                   <div className="text-center p-3 rounded-xl bg-white/5">
                     <MousePointer2 className="w-4 h-4 mx-auto mb-1 text-green-400" />
-                    <div className="text-lg font-bold">{project.metrics.clicks}</div>
-                    <div className="text-[10px] text-muted-foreground">Clics</div>
+                    <div className="text-lg font-bold">
+                      {project.metrics.clicks}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      Clics
+                    </div>
                   </div>
                   <div className="text-center p-3 rounded-xl bg-white/5">
                     <ShoppingCart className="w-4 h-4 mx-auto mb-1 text-purple-400" />
-                    <div className="text-lg font-bold">{project.metrics.conversions}</div>
-                    <div className="text-[10px] text-muted-foreground">Conversions</div>
+                    <div className="text-lg font-bold">
+                      {project.metrics.conversions}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      Conversions
+                    </div>
                   </div>
                   <div className="text-center p-3 rounded-xl bg-secondary/20">
                     <TrendingUp className="w-4 h-4 mx-auto mb-1 text-secondary" />
-                    <div className="text-lg font-bold text-secondary">{project.metrics.roas}</div>
-                    <div className="text-[10px] text-muted-foreground">ROAS</div>
+                    <div className="text-lg font-bold text-secondary">
+                      {project.metrics.roas}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      ROAS
+                    </div>
                   </div>
                 </div>
               </GlassCard>
@@ -369,13 +413,24 @@ export function AdsRealisations({ locale }: { locale: "fr" | "en" }) {
           className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { value: "2M€+", label: isEn ? "Ad spend managed" : "Budget géré" },
-            { value: "50+", label: isEn ? "Active campaigns" : "Campagnes actives" },
+            {
+              value: "2M€+",
+              label: isEn ? "Ad spend managed" : "Budget géré",
+            },
+            {
+              value: "50+",
+              label: isEn ? "Active campaigns" : "Campagnes actives",
+            },
             { value: "300%", label: isEn ? "Average ROI" : "ROI moyen" },
-            { value: "15K+", label: isEn ? "Leads generated" : "Leads générés" },
+            {
+              value: "15K+",
+              label: isEn ? "Leads generated" : "Leads générés",
+            },
           ].map((stat, i) => (
             <GlassCard key={i} className="p-4 text-center" glow="cyan">
-              <div className="text-2xl md:text-3xl font-bold text-secondary">{stat.value}</div>
+              <div className="text-2xl md:text-3xl font-bold text-secondary">
+                {stat.value}
+              </div>
               <div className="text-xs text-muted-foreground">{stat.label}</div>
             </GlassCard>
           ))}
@@ -388,42 +443,67 @@ export function AdsRealisations({ locale }: { locale: "fr" | "en" }) {
 // ============================================
 // CONTENT REALISATIONS
 // ============================================
+interface ContentProject {
+  title: string;
+  thumbnail: string;
+  type: "video" | "photo" | "reel";
+  description: { fr: string; en: string };
+  stats: {
+    views?: string;
+    likes?: string;
+    shares?: string;
+  };
+  duration?: string;
+}
+
 const contentProjects: ContentProject[] = [
   {
-    title: "Lancement Produit Cosmétique",
-    thumbnail: "/images/portfolio/maamri.jpg",
+    title: "Chef Event",
+    thumbnail: "/images/portfolio/chef-event.png",
     type: "video",
-    description: "Vidéo promotionnelle pour lancement de gamme beauté",
-    stats: { views: "125K", likes: "8.2K", shares: "1.2K" },
+    description: {
+      fr: "Clip vidéo promotionnel mettant en valeur l'expérience culinaire à domicile",
+      en: "Promotional video highlighting the private dining experience",
+    },
+    stats: { views: "85K", likes: "4.2K", shares: "1.1K" },
     duration: "0:45",
   },
   {
-    title: "Restaurant Gastronomique",
+    title: "Restaurant Papylles",
     thumbnail: "/images/portfolio/papylles.png",
     type: "reel",
-    description: "Série de reels pour mise en avant des plats signature",
-    stats: { views: "89K", likes: "5.4K", shares: "847" },
+    description: {
+      fr: "Vidéo publicitaire pour le restaurant gastronomique du Chef Thomas Briandet",
+      en: "Promotional video for Chef Thomas Briandet's gourmet restaurant",
+    },
+    stats: { views: "62K", likes: "3.8K", shares: "720" },
     duration: "0:30",
   },
   {
-    title: "Shooting E-commerce Mode",
+    title: "Coop Bazar",
     thumbnail: "/images/portfolio/coop-bazar.png",
-    type: "photo",
-    description: "Production photo complète pour collection printemps",
-    stats: { views: "45K", likes: "3.1K" },
+    type: "video",
+    description: {
+      fr: "Vidéo dynamique présentant les produits orientaux phares de la boutique",
+      en: "Dynamic video showcasing the store's top oriental products",
+    },
+    stats: { views: "45K", likes: "2.6K", shares: "580" },
+    duration: "1:00",
   },
   {
-    title: "Vidéo Corporate Tech",
-    thumbnail: "/images/portfolio/lecole-des-pros.png",
-    type: "video",
-    description: "Film d'entreprise pour startup tech innovante",
-    stats: { views: "67K", likes: "2.8K", shares: "456" },
-    duration: "2:30",
+    title: "Maamri Halles",
+    thumbnail: "/images/portfolio/maamri.jpg",
+    type: "photo",
+    description: {
+      fr: "Shooting photo professionnel pour un service traiteur haut de gamme",
+      en: "Professional photo shoot for a premium catering service",
+    },
+    stats: { views: "38K", likes: "2.1K" },
   },
 ];
 
 const typeLabels = {
-  video: { label: "Vidéo", color: "bg-red-500" },
+  video: { label: "Video", color: "bg-red-500" },
   photo: { label: "Photo", color: "bg-blue-500" },
   reel: { label: "Reel", color: "bg-purple-500" },
 };
@@ -432,7 +512,7 @@ export function ContentRealisations({ locale }: { locale: "fr" | "en" }) {
   const isEn = locale === "en";
 
   return (
-    <section className="py-24 relative">
+    <section id="resultats" className="py-24 relative scroll-mt-20">
       <div className="absolute inset-0 bg-mesh opacity-20" />
       <div className="container mx-auto px-4 relative">
         {/* Header */}
@@ -495,7 +575,7 @@ export function ContentRealisations({ locale }: { locale: "fr" | "en" }) {
                     {project.title}
                   </h3>
                   <p className="text-white/70 text-xs text-center mb-3">
-                    {project.description}
+                    {project.description[locale]}
                   </p>
 
                   {/* Stats */}
@@ -533,14 +613,243 @@ export function ContentRealisations({ locale }: { locale: "fr" | "en" }) {
           className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { value: "200+", label: isEn ? "Videos produced" : "Vidéos produites", icon: Play },
-            { value: "50M+", label: isEn ? "Total views" : "Vues totales", icon: Eye },
-            { value: "500+", label: isEn ? "Photos shot" : "Photos réalisées", icon: Users },
+            {
+              value: "200+",
+              label: isEn ? "Videos produced" : "Vidéos produites",
+              icon: Play,
+            },
+            {
+              value: "50M+",
+              label: isEn ? "Total views" : "Vues totales",
+              icon: Eye,
+            },
+            {
+              value: "500+",
+              label: isEn ? "Photos shot" : "Photos réalisées",
+              icon: Users,
+            },
             { value: "100%", label: "Satisfaction", icon: Heart },
           ].map((stat, i) => (
             <GlassCard key={i} className="p-4 text-center" glow="cyan">
               <stat.icon className="w-5 h-5 mx-auto mb-2 text-accent" />
-              <div className="text-2xl md:text-3xl font-bold text-accent">{stat.value}</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent">
+                {stat.value}
+              </div>
+              <div className="text-xs text-muted-foreground">{stat.label}</div>
+            </GlassCard>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// ============================================
+// LINKEDIN REALISATIONS
+// ============================================
+interface LinkedInCaseStudy {
+  title: { fr: string; en: string };
+  industry: { fr: string; en: string };
+  description: { fr: string; en: string };
+  metrics: {
+    connections: string;
+    responses: string;
+    meetings: string;
+    conversionRate: string;
+  };
+}
+
+const linkedinCaseStudies: LinkedInCaseStudy[] = [
+  {
+    title: {
+      fr: "Cabinet de Conseil B2B",
+      en: "B2B Consulting Firm",
+    },
+    industry: { fr: "Conseil", en: "Consulting" },
+    description: {
+      fr: "Prospection ciblée de dirigeants PME dans le Nord-Pas-de-Calais pour un cabinet de conseil en stratégie",
+      en: "Targeted outreach to SME executives in Nord-Pas-de-Calais for a strategy consulting firm",
+    },
+    metrics: {
+      connections: "420",
+      responses: "89",
+      meetings: "24",
+      conversionRate: "27%",
+    },
+  },
+  {
+    title: {
+      fr: "Agence Immobilière",
+      en: "Real Estate Agency",
+    },
+    industry: { fr: "Immobilier", en: "Real Estate" },
+    description: {
+      fr: "Génération de leads pour mandats exclusifs auprès de propriétaires et investisseurs de la région",
+      en: "Lead generation for exclusive listings from property owners and investors in the region",
+    },
+    metrics: {
+      connections: "380",
+      responses: "72",
+      meetings: "18",
+      conversionRate: "25%",
+    },
+  },
+  {
+    title: {
+      fr: "Entreprise Industrielle",
+      en: "Industrial Company",
+    },
+    industry: { fr: "Industrie", en: "Industrial" },
+    description: {
+      fr: "Prospection de décideurs dans l'industrie pour des solutions de protection incendie",
+      en: "Prospecting decision-makers in the industrial sector for fire protection solutions",
+    },
+    metrics: {
+      connections: "350",
+      responses: "65",
+      meetings: "21",
+      conversionRate: "32%",
+    },
+  },
+];
+
+export function LinkedInRealisations({ locale }: { locale: "fr" | "en" }) {
+  const isEn = locale === "en";
+
+  return (
+    <section id="resultats" className="py-24 relative scroll-mt-20">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0A66C2]/5 via-transparent to-primary/5" />
+      <div className="container mx-auto px-4 relative">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {isEn
+              ? "LinkedIn Prospecting Results"
+              : "Résultats de Prospection LinkedIn"}
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {isEn
+              ? "Real B2B results for our clients in Nord-Pas-de-Calais"
+              : "Des résultats B2B réels pour nos clients du Nord-Pas-de-Calais"}
+          </p>
+        </motion.div>
+
+        {/* Case Studies Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {linkedinCaseStudies.map((study, index) => (
+            <motion.div
+              key={study.title.fr}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <GlassCard className="p-6 h-full" hover>
+                {/* Header */}
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      {platformLogos.linkedin}
+                      <span className="text-xs text-muted-foreground uppercase tracking-wide">
+                        LinkedIn
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold">
+                      {study.title[locale]}
+                    </h3>
+                  </div>
+                  <span className="text-xs px-2 py-1 rounded-full bg-[#0A66C2]/10 text-[#0A66C2] font-medium">
+                    {study.industry[locale]}
+                  </span>
+                </div>
+
+                <p className="text-sm text-muted-foreground mb-5">
+                  {study.description[locale]}
+                </p>
+
+                {/* Metrics */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="text-center p-3 rounded-xl bg-white/5">
+                    <UserPlus className="w-4 h-4 mx-auto mb-1 text-[#0A66C2]" />
+                    <div className="text-lg font-bold">
+                      {study.metrics.connections}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      {isEn ? "Connections" : "Connexions"}
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/5">
+                    <MessageSquare className="w-4 h-4 mx-auto mb-1 text-green-400" />
+                    <div className="text-lg font-bold">
+                      {study.metrics.responses}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      {isEn ? "Responses" : "Réponses"}
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/5">
+                    <CalendarCheck className="w-4 h-4 mx-auto mb-1 text-purple-400" />
+                    <div className="text-lg font-bold">
+                      {study.metrics.meetings}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      {isEn ? "Meetings" : "RDV obtenus"}
+                    </div>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-secondary/20">
+                    <TrendingUp className="w-4 h-4 mx-auto mb-1 text-secondary" />
+                    <div className="text-lg font-bold text-secondary">
+                      {study.metrics.conversionRate}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground">
+                      {isEn ? "Conversion" : "Conversion"}
+                    </div>
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Global Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
+        >
+          {[
+            {
+              value: "25%",
+              label: isEn ? "Avg. acceptance rate" : "Taux d'acceptation moyen",
+              icon: UserPlus,
+            },
+            {
+              value: "15-30",
+              label: isEn ? "Meetings/month" : "RDV/mois",
+              icon: CalendarCheck,
+            },
+            {
+              value: "500+",
+              label: isEn ? "Prospects reached/month" : "Prospects contactés/mois",
+              icon: Users,
+            },
+            {
+              value: "100%",
+              label: isEn ? "GDPR compliant" : "Conforme RGPD",
+              icon: Heart,
+            },
+          ].map((stat, i) => (
+            <GlassCard key={i} className="p-4 text-center" glow="cyan">
+              <stat.icon className="w-5 h-5 mx-auto mb-2 text-[#0A66C2]" />
+              <div className="text-2xl md:text-3xl font-bold text-[#0A66C2]">
+                {stat.value}
+              </div>
               <div className="text-xs text-muted-foreground">{stat.label}</div>
             </GlassCard>
           ))}
