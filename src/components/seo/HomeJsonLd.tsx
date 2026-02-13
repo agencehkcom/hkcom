@@ -104,7 +104,6 @@ export function HomeJsonLd({ locale }: HomeJsonLdProps) {
     image: `${baseUrl}/images/og/hkcom-home.jpg`,
     url: baseUrl,
     telephone: "+33-XXX-XXX-XXX",
-    priceRange: "€€",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Dunkerque",

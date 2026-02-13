@@ -80,15 +80,6 @@ interface ServiceFeature {
   description: string;
 }
 
-interface ServicePackage {
-  name: string;
-  price: string;
-  description: string;
-  features: string[];
-  highlighted?: boolean;
-  tag?: string;
-}
-
 interface ServiceFAQ {
   question: string;
   answer: string;
@@ -105,7 +96,6 @@ interface ServicePageProps {
     color: "primary" | "secondary" | "accent";
     features: ServiceFeature[];
     benefits: string[];
-    packages: ServicePackage[];
     process: {
       number: string;
       title: string;
@@ -558,84 +548,6 @@ export function ServicePageLayout({ locale, service, customHeroVisual, showBrand
                       {step.title}
                     </h3>
                     <p className="text-sm text-muted-foreground">{step.description}</p>
-                  </GlassCard>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Packages Section */}
-        <section id="packages" className="py-24 relative scroll-mt-20">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-          <div className="container mx-auto px-4 relative">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {isEn ? "Our Packages" : "Nos Offres"}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {isEn
-                  ? "Choose the solution that fits your needs"
-                  : "Choisissez la solution adaptée à vos besoins"}
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {service.packages.map((pkg, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={pkg.highlighted ? "lg:-mt-4 lg:mb-4" : ""}
-                >
-                  <GlassCard
-                    className={`p-6 h-full relative overflow-hidden ${
-                      pkg.highlighted ? "border-secondary/50" : ""
-                    }`}
-                    glow={pkg.highlighted ? "cyan" : undefined}
-                  >
-                    {pkg.tag && (
-                      <div className="absolute top-4 right-4">
-                        <span className="px-3 py-1 rounded-full bg-gradient-to-r from-secondary to-secondary/80 text-white text-xs font-bold">
-                          {pkg.tag}
-                        </span>
-                      </div>
-                    )}
-
-                    <h3 className="text-xl font-bold mb-2">{pkg.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4">{pkg.description}</p>
-
-                    <div className="mb-6">
-                      <span className={`text-4xl font-bold ${pkg.highlighted ? colors.text : ""}`}>
-                        {pkg.price}
-                      </span>
-                    </div>
-
-                    <ul className="space-y-3 mb-6">
-                      {pkg.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm">
-                          <CheckCircle2 className={`w-5 h-5 flex-shrink-0 ${pkg.highlighted ? "text-secondary" : "text-muted-foreground"}`} />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <GlowButton
-                      className="w-full"
-                      variant={pkg.highlighted ? "primary" : "outline"}
-                      asChild
-                    >
-                      <Link href="/#contact">
-                        {isEn ? "Get Started" : "Commencer"}
-                      </Link>
-                    </GlowButton>
                   </GlassCard>
                 </motion.div>
               ))}

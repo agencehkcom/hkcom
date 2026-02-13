@@ -20,6 +20,7 @@ import {
   Lightbulb,
   HelpCircle,
   Zap,
+  Play,
   Phone,
   ChevronRight,
   ChevronLeft,
@@ -34,7 +35,6 @@ interface FormData {
   phone: string;
   company: string;
   message: string;
-  budget: string;
 }
 
 const serviceOptions = {
@@ -45,6 +45,7 @@ const serviceOptions = {
     { value: "linkedin", label: "Prospection LinkedIn", desc: "Génération de leads B2B", icon: Linkedin },
     { value: "strategy", label: "Stratégie Digitale", desc: "Accompagnement complet", icon: Lightbulb },
     { value: "aide-numerique", label: "Aide Numérique", desc: "Dispositif France Num", icon: Zap },
+    { value: "webinaire", label: "Webinaire", desc: "Formations gratuites en ligne", icon: Play },
     { value: "other", label: "Autre Projet", desc: "Parlons-en ensemble", icon: HelpCircle },
   ],
   en: [
@@ -54,17 +55,10 @@ const serviceOptions = {
     { value: "linkedin", label: "LinkedIn Prospecting", desc: "B2B lead generation", icon: Linkedin },
     { value: "strategy", label: "Digital Strategy", desc: "Full-service support", icon: Lightbulb },
     { value: "aide-numerique", label: "Digital Aid", desc: "France Num program", icon: Zap },
+    { value: "webinaire", label: "Webinar", desc: "Free online training", icon: Play },
     { value: "other", label: "Other Project", desc: "Let's talk about it", icon: HelpCircle },
   ],
 };
-
-const budgetOptions = [
-  { value: "< 1 500€", label: "< 1 500€" },
-  { value: "1 500€ - 3 000€", label: "1 500€ - 3 000€" },
-  { value: "3 000€ - 5 000€", label: "3 000€ - 5 000€" },
-  { value: "5 000€ - 10 000€", label: "5 000€ - 10 000€" },
-  { value: "> 10 000€", label: "> 10 000€" },
-];
 
 const translations = {
   fr: {
@@ -79,7 +73,6 @@ const translations = {
     phone: "Téléphone",
     company: "Entreprise (optionnel)",
     message: "Décrivez votre projet",
-    budget: "Budget estimé",
     submit: "Envoyer le message",
     sending: "Envoi en cours...",
     success: "Message envoyé !",
@@ -102,7 +95,6 @@ const translations = {
     phone: "Phone number",
     company: "Company (optional)",
     message: "Describe your project",
-    budget: "Estimated budget",
     submit: "Send message",
     sending: "Sending...",
     success: "Message sent!",
@@ -144,7 +136,6 @@ export function ContactForm() {
     phone: "",
     company: "",
     message: "",
-    budget: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -181,6 +172,10 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (step < 3) {
+      goNext();
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -203,8 +198,7 @@ export function ContactForm() {
           phone: "",
           company: "",
           message: "",
-          budget: "",
-        });
+              });
       }, 3000);
     } catch {
       alert(locale === "fr"
@@ -465,36 +459,6 @@ export function ContactForm() {
                         onBlur={() => setFocusedField(null)}
                         className={`${inputClasses("message")} pl-11 resize-none`}
                       />
-                    </div>
-
-                    {/* Budget Chips */}
-                    <div>
-                      <label className="text-sm font-medium text-muted-foreground mb-3 block">
-                        {t.budget}
-                      </label>
-                      <div className="flex flex-wrap gap-2">
-                        {budgetOptions.map((option) => (
-                          <motion.button
-                            key={option.value}
-                            type="button"
-                            onClick={() =>
-                              setFormData((prev) => ({
-                                ...prev,
-                                budget: prev.budget === option.value ? "" : option.value,
-                              }))
-                            }
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 cursor-pointer ${
-                              formData.budget === option.value
-                                ? "border-primary bg-primary/10 text-primary shadow-md shadow-primary/10"
-                                : "border-border/50 text-muted-foreground hover:border-primary/30 hover:bg-primary/5"
-                            }`}
-                          >
-                            {option.label}
-                          </motion.button>
-                        ))}
-                      </div>
                     </div>
 
                     {/* Calendly CTA */}

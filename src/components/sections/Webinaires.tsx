@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { GlassCard } from "@/components/shared/GlassCard";
 import { GlowButton } from "@/components/shared/GlowButton";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import {
   Play,
   Calendar,
@@ -52,6 +53,7 @@ const webinaires = [
       en: "Architects, interior designers, entrepreneurs",
     },
     replayUrl: "https://youtu.be/p0nVpD74bro",
+    thumbnail: "https://img.youtube.com/vi/p0nVpD74bro/maxresdefault.jpg",
     isNew: true,
   },
   {
@@ -87,6 +89,7 @@ const webinaires = [
       en: "Freelancers, consultants, B2B agencies",
     },
     replayUrl: "https://youtu.be/BFWdNTRwmlk",
+    thumbnail: "https://img.youtube.com/vi/BFWdNTRwmlk/maxresdefault.jpg",
     isNew: false,
   },
   {
@@ -122,6 +125,7 @@ const webinaires = [
       en: "SMBs, e-commerce, service providers",
     },
     replayUrl: "https://youtu.be/LuIbw7klJn0",
+    thumbnail: "https://img.youtube.com/vi/LuIbw7klJn0/maxresdefault.jpg",
     isNew: false,
   },
 ];
@@ -179,7 +183,34 @@ export function WebinairesContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <GlassCard className="p-6 h-full flex flex-col group" hover>
+              <GlassCard className="p-0 h-full flex flex-col group overflow-hidden" hover>
+                {/* Thumbnail */}
+                <a
+                  href={webinaire.replayUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative aspect-video w-full overflow-hidden"
+                >
+                  <Image
+                    src={webinaire.thumbnail}
+                    alt={webinaire.title[locale]}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center">
+                      <Play className="w-6 h-6 text-primary ml-1" />
+                    </div>
+                  </div>
+                  {webinaire.isNew && (
+                    <span className="absolute top-3 right-3 px-3 py-1 rounded-full bg-green-500 text-white text-xs font-medium">
+                      {locale === "fr" ? "Nouveau" : "New"}
+                    </span>
+                  )}
+                </a>
+
+                <div className="p-6 flex flex-col flex-1">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div
@@ -187,11 +218,6 @@ export function WebinairesContent() {
                   >
                     <webinaire.icon className="w-7 h-7 text-white" />
                   </div>
-                  {webinaire.isNew && (
-                    <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500 text-xs font-medium">
-                      {locale === "fr" ? "Nouveau" : "New"}
-                    </span>
-                  )}
                 </div>
 
                 {/* Title */}
@@ -240,11 +266,14 @@ export function WebinairesContent() {
                 {/* CTA */}
                 <a
                   href={webinaire.replayUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-all"
                 >
                   <Play className="w-4 h-4" />
                   {locale === "fr" ? "Voir le replay" : "Watch replay"}
                 </a>
+                </div>
               </GlassCard>
             </motion.div>
           ))}

@@ -185,84 +185,6 @@ export default async function LinkedInServicePage({ params }: Props) {
           "Sans engagement long terme",
           "Account manager dédié",
         ],
-    packages: [
-      {
-        name: isEn ? "Starter" : "Démarrage",
-        price: isEn ? "€500/month" : "500€/mois",
-        description: isEn
-          ? "Start prospecting on LinkedIn"
-          : "Lancez votre prospection LinkedIn",
-        features: isEn
-          ? [
-              "Profile optimization",
-              "200 targeted invitations/month",
-              "1 messaging sequence",
-              "Monthly performance report",
-              "Email support",
-            ]
-          : [
-              "Optimisation du profil",
-              "200 invitations ciblées/mois",
-              "1 séquence de messages",
-              "Rapport de performance mensuel",
-              "Support par email",
-            ],
-      },
-      {
-        name: isEn ? "Growth" : "Croissance",
-        price: isEn ? "€1,000/month" : "1 000€/mois",
-        description: isEn
-          ? "Scale your B2B lead generation"
-          : "Développez votre génération de leads B2B",
-        features: isEn
-          ? [
-              "Profile optimization + banner",
-              "500 targeted invitations/month",
-              "3 messaging sequences with A/B testing",
-              "LinkedIn content strategy (2 posts/week)",
-              "Weekly reporting & optimization calls",
-              "CRM integration",
-              "Priority support",
-            ]
-          : [
-              "Optimisation profil + bannière",
-              "500 invitations ciblées/mois",
-              "3 séquences de messages avec A/B testing",
-              "Stratégie de contenu LinkedIn (2 posts/semaine)",
-              "Reporting hebdo & appels d'optimisation",
-              "Intégration CRM",
-              "Support prioritaire",
-            ],
-        highlighted: true,
-        tag: isEn ? "Most Popular" : "Le plus populaire",
-      },
-      {
-        name: isEn ? "Enterprise" : "Entreprise",
-        price: isEn ? "Custom" : "Sur mesure",
-        description: isEn
-          ? "Full LinkedIn growth strategy"
-          : "Stratégie LinkedIn complète",
-        features: isEn
-          ? [
-              "Multi-profile management",
-              "Unlimited invitations",
-              "Unlimited messaging sequences",
-              "Full content strategy + ghostwriting",
-              "LinkedIn Ads management",
-              "Dedicated account manager",
-              "Weekly strategy calls",
-            ]
-          : [
-              "Gestion multi-profils",
-              "Invitations illimitées",
-              "Séquences de messages illimitées",
-              "Stratégie de contenu + ghostwriting",
-              "Gestion LinkedIn Ads",
-              "Account manager dédié",
-              "Appels stratégie hebdomadaires",
-            ],
-      },
-    ],
     process: [
       {
         number: "1",
@@ -354,7 +276,6 @@ export default async function LinkedInServicePage({ params }: Props) {
         serviceName={service.name}
         serviceDescription={service.longDescription}
         serviceType="linkedin"
-        priceRange="€€"
       />
       <BreadcrumbJsonLd
         locale={locale as "fr" | "en"}

@@ -190,86 +190,6 @@ export default async function ContentServicePage({ params }: Props) {
           "Propriété totale des droits sur le contenu",
           "Prises de vue drone disponibles dans la région",
         ],
-    packages: [
-      {
-        name: isEn ? "Essential" : "Essentiel",
-        price: isEn ? "From €800" : "À partir de 800€",
-        description: isEn
-          ? "Perfect for social media and basic needs"
-          : "Idéal pour les réseaux sociaux et besoins basiques",
-        features: isEn
-          ? [
-              "1 video (up to 60s) or",
-              "10 product photos",
-              "Basic editing included",
-              "2 format adaptations",
-              "1 revision round",
-              "Delivery in 5-7 days",
-            ]
-          : [
-              "1 vidéo (jusqu'à 60s) ou",
-              "10 photos produits",
-              "Montage de base inclus",
-              "2 adaptations de format",
-              "1 tour de révision",
-              "Livraison en 5-7 jours",
-            ],
-      },
-      {
-        name: isEn ? "Professional" : "Professionnel",
-        price: isEn ? "From €2,500" : "À partir de 2 500€",
-        description: isEn
-          ? "Complete package for serious brands"
-          : "Pack complet pour les marques sérieuses",
-        features: isEn
-          ? [
-              "3 videos (up to 90s each)",
-              "20 professional photos",
-              "Advanced editing & effects",
-              "All social media formats",
-              "Music & voiceover included",
-              "Unlimited revisions",
-              "Delivery in 10-14 days",
-            ]
-          : [
-              "3 vidéos (jusqu'à 90s chacune)",
-              "20 photos professionnelles",
-              "Montage avancé & effets",
-              "Tous les formats réseaux sociaux",
-              "Musique & voix-off incluses",
-              "Révisions illimitées",
-              "Livraison en 10-14 jours",
-            ],
-        highlighted: true,
-        tag: isEn ? "Most Popular" : "Plus populaire",
-      },
-      {
-        name: isEn ? "Premium" : "Premium",
-        price: isEn ? "Custom" : "Sur mesure",
-        description: isEn
-          ? "Full-scale production for major projects"
-          : "Production complète pour projets majeurs",
-        features: isEn
-          ? [
-              "Unlimited video content",
-              "Full photo shoot included",
-              "Professional crew & equipment",
-              "Drone footage available",
-              "Motion graphics & animation",
-              "Dedicated project manager",
-              "Rush delivery available",
-            ]
-          : [
-              "Contenu vidéo illimité",
-              "Shooting photo complet inclus",
-              "Équipe & équipement pro",
-              "Prises de vue drone disponibles",
-              "Motion design & animation",
-              "Chef de projet dédié",
-              "Livraison express disponible",
-            ],
-      },
-    ],
     process: [
       {
         number: "1",
@@ -306,7 +226,7 @@ export default async function ContentServicePage({ params }: Props) {
           ? "Do you provide the equipment and crew?"
           : "Fournissez-vous l'équipement et l'équipe ?",
         answer: isEn
-          ? "Yes! All our packages include professional equipment and experienced crew. For larger productions, we bring additional team members as needed."
+          ? "Yes! All our services include professional equipment and experienced crew. For larger productions, we bring additional team members as needed."
           : "Oui ! Toutes nos offres incluent équipement professionnel et équipe expérimentée. Pour les productions plus importantes, nous ajoutons des membres d'équipe selon les besoins.",
       },
       {
@@ -322,8 +242,8 @@ export default async function ContentServicePage({ params }: Props) {
           ? "How many revisions are included?"
           : "Combien de révisions sont incluses ?",
         answer: isEn
-          ? "Our Essential package includes 1 revision round. Professional and Premium packages include unlimited revisions until you're 100% satisfied."
-          : "Notre offre Essentiel inclut 1 tour de révision. Les offres Professionnel et Premium incluent des révisions illimitées jusqu'à ce que vous soyez 100% satisfait.",
+          ? "Revisions are included in all our services. We work with you until you're 100% satisfied with the final result."
+          : "Les révisions sont incluses dans toutes nos prestations. Nous travaillons avec vous jusqu'à ce que vous soyez 100% satisfait du résultat final.",
       },
       {
         question: isEn
@@ -362,7 +282,6 @@ export default async function ContentServicePage({ params }: Props) {
         serviceName={service.name}
         serviceDescription={service.longDescription}
         serviceType="content"
-        priceRange="€€"
       />
       <BreadcrumbJsonLd
         locale={locale as "fr" | "en"}

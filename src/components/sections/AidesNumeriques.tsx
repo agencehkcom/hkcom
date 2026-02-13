@@ -26,7 +26,7 @@ import {
 const benefits = [
   {
     icon: Euro,
-    title: { fr: "Jusqu'à 500€ d'aide", en: "Up to €500 in subsidies" },
+    title: { fr: "Aide financière", en: "Financial aid" },
     description: {
       fr: "Bénéficiez d'une aide financière pour votre projet de digitalisation",
       en: "Benefit from financial aid for your digitalization project",
@@ -64,10 +64,9 @@ const eligibilityCriteria = [
 ];
 
 const stats = [
-  { value: "500€", labelFr: "d'aide max", labelEn: "max subsidy", icon: Euro },
   { value: "100%", labelFr: "taux de réussite", labelEn: "success rate", icon: TrendingUp },
   { value: "48h", labelFr: "délai moyen", labelEn: "average time", icon: Clock },
-  { value: "0€", labelFr: "frais de dossier", labelEn: "application fee", icon: Award },
+  { value: "50+", labelFr: "dossiers accompagnés", labelEn: "applications supported", icon: Award },
 ];
 
 export function AidesNumeriques() {

@@ -189,86 +189,6 @@ export default async function AdsServicePage({ params }: Props) {
           "Sans engagement long terme - contrats mensuels",
           "ROI moyen de 300% pour nos clients locaux",
         ],
-    packages: [
-      {
-        name: isEn ? "Starter" : "Démarrage",
-        price: isEn ? "€500/month" : "500€/mois",
-        description: isEn
-          ? "Perfect for testing digital advertising"
-          : "Idéal pour tester la publicité digitale",
-        features: isEn
-          ? [
-              "1 advertising platform",
-              "Up to €1,000 ad budget managed",
-              "Campaign setup & optimization",
-              "Monthly performance report",
-              "Email support",
-              "No setup fees",
-            ]
-          : [
-              "1 plateforme publicitaire",
-              "Jusqu'à 1 000€ de budget géré",
-              "Création & optimisation campagnes",
-              "Rapport de performance mensuel",
-              "Support par email",
-              "Sans frais de setup",
-            ],
-      },
-      {
-        name: isEn ? "Growth" : "Croissance",
-        price: isEn ? "€1,200/month" : "1 200€/mois",
-        description: isEn
-          ? "Scale your advertising for maximum impact"
-          : "Développez votre publicité pour un impact maximum",
-        features: isEn
-          ? [
-              "2-3 advertising platforms",
-              "Up to €5,000 ad budget managed",
-              "Advanced audience targeting",
-              "Retargeting campaigns",
-              "Bi-weekly optimization calls",
-              "Real-time dashboard access",
-              "Priority support",
-            ]
-          : [
-              "2-3 plateformes publicitaires",
-              "Jusqu'à 5 000€ de budget géré",
-              "Ciblage d'audience avancé",
-              "Campagnes de retargeting",
-              "Appels d'optimisation bi-mensuels",
-              "Accès dashboard temps réel",
-              "Support prioritaire",
-            ],
-        highlighted: true,
-        tag: isEn ? "Best Value" : "Meilleur rapport",
-      },
-      {
-        name: isEn ? "Enterprise" : "Entreprise",
-        price: isEn ? "Custom" : "Sur mesure",
-        description: isEn
-          ? "Full-service advertising management"
-          : "Gestion publicitaire complète",
-        features: isEn
-          ? [
-              "All advertising platforms",
-              "Unlimited ad budget managed",
-              "Custom audience creation",
-              "Lookalike audiences",
-              "Weekly strategy calls",
-              "Creative production included",
-              "Dedicated account manager",
-            ]
-          : [
-              "Toutes les plateformes",
-              "Budget publicitaire illimité",
-              "Création d'audiences personnalisées",
-              "Audiences similaires",
-              "Appels stratégie hebdomadaires",
-              "Production créative incluse",
-              "Account manager dédié",
-            ],
-      },
-    ],
     process: [
       {
         number: "1",
@@ -305,8 +225,8 @@ export default async function AdsServicePage({ params }: Props) {
           ? "What advertising budget do I need to get started?"
           : "Quel budget publicitaire faut-il pour commencer ?",
         answer: isEn
-          ? "We recommend starting with at least €500-1,000/month in ad spend to gather meaningful data. Our management fees are separate from your advertising budget."
-          : "Nous recommandons de commencer avec au moins 500-1 000€/mois de budget publicitaire pour collecter des données significatives. Nos frais de gestion sont séparés de votre budget pub.",
+          ? "We recommend a minimum ad spend to gather meaningful data. During our discovery call, we'll define the ideal budget based on your goals and market."
+          : "Nous recommandons un budget publicitaire minimum pour collecter des données significatives. Lors de notre appel découverte, nous définirons le budget idéal selon vos objectifs et votre marché.",
       },
       {
         question: isEn
@@ -343,7 +263,7 @@ export default async function AdsServicePage({ params }: Props) {
         label: isEn ? "Local campaigns" : "Campagnes locales",
       },
       {
-        value: "2M€+",
+        value: "2M+",
         label: isEn ? "Managed in Nord" : "Gérés dans le Nord",
       },
       {
@@ -361,7 +281,6 @@ export default async function AdsServicePage({ params }: Props) {
         serviceName={service.name}
         serviceDescription={service.longDescription}
         serviceType="ads"
-        priceRange="€€"
       />
       <BreadcrumbJsonLd
         locale={locale as "fr" | "en"}

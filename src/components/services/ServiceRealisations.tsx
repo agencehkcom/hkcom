@@ -414,7 +414,7 @@ export function AdsRealisations({ locale }: { locale: "fr" | "en" }) {
         >
           {[
             {
-              value: "2M€+",
+              value: "2M+",
               label: isEn ? "Ad spend managed" : "Budget géré",
             },
             {

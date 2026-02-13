@@ -5,7 +5,6 @@ interface ServiceJsonLdProps {
   serviceName: string;
   serviceDescription: string;
   serviceType: "web" | "ads" | "content" | "linkedin";
-  priceRange: string;
 }
 
 export function ServiceJsonLd({
@@ -13,7 +12,6 @@ export function ServiceJsonLd({
   serviceName,
   serviceDescription,
   serviceType,
-  priceRange,
 }: ServiceJsonLdProps) {
   const isEn = locale === "en";
   const baseUrl = "https://hkcom.fr";
@@ -107,13 +105,7 @@ export function ServiceJsonLd({
         name: "Hauts-de-France",
       },
     ],
-    priceRange: priceRange,
     url: serviceUrls[serviceType],
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: serviceName,
-      itemListElement: getOffersByType(serviceType, isEn),
-    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -129,153 +121,6 @@ export function ServiceJsonLd({
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
     />
   );
-}
-
-function getOffersByType(type: "web" | "ads" | "content" | "linkedin", isEn: boolean) {
-  const offers = {
-    web: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: isEn ? "Starter Website" : "Site Essentiel",
-          description: isEn
-            ? "Up to 5 pages, responsive design, basic SEO"
-            : "Jusqu'à 5 pages, design responsive, SEO de base",
-        },
-        price: "1500",
-        priceCurrency: "EUR",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: isEn ? "Professional Website" : "Site Professionnel",
-          description: isEn
-            ? "Up to 15 pages, premium design, advanced SEO"
-            : "Jusqu'à 15 pages, design premium, SEO avancé",
-        },
-        price: "3000",
-        priceCurrency: "EUR",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "E-commerce",
-          description: isEn
-            ? "Full online store with payment integration"
-            : "Boutique en ligne complète avec paiement intégré",
-        },
-        price: "5000",
-        priceCurrency: "EUR",
-      },
-    ],
-    ads: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: isEn ? "Starter Campaign" : "Campagne Démarrage",
-          description: isEn
-            ? "1 platform, up to €1,000 budget managed"
-            : "1 plateforme, jusqu'à 1 000€ de budget géré",
-        },
-        price: "500",
-        priceCurrency: "EUR",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: "500",
-          priceCurrency: "EUR",
-          unitText: isEn ? "per month" : "par mois",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: isEn ? "Growth Campaign" : "Campagne Croissance",
-          description: isEn
-            ? "2-3 platforms, up to €5,000 budget managed"
-            : "2-3 plateformes, jusqu'à 5 000€ de budget géré",
-        },
-        price: "1200",
-        priceCurrency: "EUR",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: "1200",
-          priceCurrency: "EUR",
-          unitText: isEn ? "per month" : "par mois",
-        },
-      },
-    ],
-    content: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: isEn ? "Essential Video" : "Vidéo Essentielle",
-          description: isEn
-            ? "1 video up to 60s or 10 product photos"
-            : "1 vidéo jusqu'à 60s ou 10 photos produits",
-        },
-        price: "800",
-        priceCurrency: "EUR",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: isEn ? "Professional Package" : "Pack Professionnel",
-          description: isEn
-            ? "3 videos + 20 photos, all formats included"
-            : "3 vidéos + 20 photos, tous formats inclus",
-        },
-        price: "2500",
-        priceCurrency: "EUR",
-      },
-    ],
-    linkedin: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: isEn ? "Starter Prospecting" : "Prospection Démarrage",
-          description: isEn
-            ? "Profile optimization, 200 invitations/month"
-            : "Optimisation profil, 200 invitations/mois",
-        },
-        price: "500",
-        priceCurrency: "EUR",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: "500",
-          priceCurrency: "EUR",
-          unitText: isEn ? "per month" : "par mois",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: isEn ? "Growth Prospecting" : "Prospection Croissance",
-          description: isEn
-            ? "Full automation, 500 invitations/month, content strategy"
-            : "Automatisation complète, 500 invitations/mois, stratégie de contenu",
-        },
-        price: "1000",
-        priceCurrency: "EUR",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: "1000",
-          priceCurrency: "EUR",
-          unitText: isEn ? "per month" : "par mois",
-        },
-      },
-    ],
-  };
-
-  return offers[type];
 }
 
 // Breadcrumb JSON-LD

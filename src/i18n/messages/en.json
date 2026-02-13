@@ -119,7 +119,7 @@
     "items": {
       "q1": {
         "question": "How much does a website cost?",
-        "answer": "The cost depends on your specific needs. We offer solutions starting from 1500€ for a showcase website, with financing options available through France Num subsidies."
+        "answer": "The cost depends on your specific needs. Contact us for a free, personalized quote. France Num subsidies are available to help finance your project."
       },
       "q2": {
         "question": "What are the delivery times?",
@@ -127,11 +127,11 @@
       },
       "q3": {
         "question": "Do you offer maintenance?",
-        "answer": "Yes, we offer monthly maintenance packages including updates, backups, security and technical support."
+        "answer": "Yes, we offer maintenance services including updates, backups, security and technical support."
       },
       "q4": {
         "question": "How does the France Num subsidy work?",
-        "answer": "As a France Num Activator, we help you benefit from up to 500€ in subsidies for your digitalization project. We handle the administrative procedures."
+        "answer": "As a France Num Activator, we help you benefit from subsidies for your digitalization project. We handle the administrative procedures."
       },
       "q5": {
         "question": "Where do you operate?",
@@ -241,7 +241,7 @@
   "newsletter": {
     "badge": "Free Audit",
     "title": "Get your free marketing audit",
-    "description": "Subscribe to our newsletter and receive a complete audit of your digital presence worth €200.",
+    "description": "Subscribe to our newsletter and receive a complete audit of your digital presence for free.",
     "benefit1": "Analysis of your current website",
     "benefit2": "Personalized recommendations",
     "benefit3": "Exclusive tips every month",

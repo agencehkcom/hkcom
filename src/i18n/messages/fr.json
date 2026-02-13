@@ -119,7 +119,7 @@
     "items": {
       "q1": {
         "question": "Combien coûte un site web ?",
-        "answer": "Le coût dépend de vos besoins spécifiques. Nous proposons des solutions à partir de 1500€ pour un site vitrine, avec possibilité de financement via les aides France Num."
+        "answer": "Le coût dépend de vos besoins spécifiques. Contactez-nous pour un devis personnalisé et gratuit. Des aides France Num sont disponibles pour financer votre projet."
       },
       "q2": {
         "question": "Quels sont les délais de réalisation ?",
@@ -127,11 +127,11 @@
       },
       "q3": {
         "question": "Proposez-vous de la maintenance ?",
-        "answer": "Oui, nous proposons des forfaits de maintenance mensuels incluant mises à jour, sauvegardes, sécurité et support technique."
+        "answer": "Oui, nous proposons des services de maintenance incluant mises à jour, sauvegardes, sécurité et support technique."
       },
       "q4": {
         "question": "Comment fonctionne l'aide France Num ?",
-        "answer": "En tant qu'Activateur France Num, nous vous accompagnons pour bénéficier jusqu'à 500€ d'aide pour votre projet de digitalisation. Nous gérons les démarches administratives."
+        "answer": "En tant qu'Activateur France Num, nous vous accompagnons pour bénéficier d'aides pour votre projet de digitalisation. Nous gérons les démarches administratives."
       },
       "q5": {
         "question": "Où intervenez-vous ?",
@@ -241,7 +241,7 @@
   "newsletter": {
     "badge": "Audit Gratuit",
     "title": "Recevez votre audit marketing gratuit",
-    "description": "Inscrivez-vous à notre newsletter et recevez un audit complet de votre présence digitale d'une valeur de 200€.",
+    "description": "Inscrivez-vous à notre newsletter et recevez un audit complet de votre présence digitale gratuitement.",
     "benefit1": "Analyse de votre site web actuel",
     "benefit2": "Recommandations personnalisées",
     "benefit3": "Conseils exclusifs chaque mois",

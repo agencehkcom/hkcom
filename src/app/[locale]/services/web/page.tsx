@@ -179,7 +179,7 @@ export default async function WebServicePage({ params }: Props) {
           "Responsive support - we're just a call away",
           "SEO optimized for local visibility",
           "Training at your premises or remotely",
-          "France Num certified - up to €500 subsidy",
+          "France Num certified - eligible for subsidies",
         ]
       : [
           "Agence locale basée à Dunkerque - rencontrons-nous",
@@ -188,88 +188,8 @@ export default async function WebServicePage({ params }: Props) {
           "Support réactif - on se déplace chez vous",
           "SEO optimisé pour la visibilité locale",
           "Formation dans vos locaux ou à distance",
-          "Activateur France Num - jusqu'à 500€ d'aide",
+          "Activateur France Num - éligible aux aides",
         ],
-    packages: [
-      {
-        name: isEn ? "Starter" : "Essentiel",
-        price: isEn ? "From €1,500" : "À partir de 1 500€",
-        description: isEn
-          ? "Perfect for small businesses and freelancers"
-          : "Idéal pour les petites entreprises et indépendants",
-        features: isEn
-          ? [
-              "Up to 5 pages",
-              "Responsive design",
-              "Contact form",
-              "Basic SEO setup",
-              "1 month support",
-              "Delivery in 2-3 weeks",
-            ]
-          : [
-              "Jusqu'à 5 pages",
-              "Design responsive",
-              "Formulaire de contact",
-              "Configuration SEO de base",
-              "1 mois de support",
-              "Livraison en 2-3 semaines",
-            ],
-      },
-      {
-        name: isEn ? "Professional" : "Professionnel",
-        price: isEn ? "From €3,000" : "À partir de 3 000€",
-        description: isEn
-          ? "Complete solution for growing businesses"
-          : "Solution complète pour les entreprises en croissance",
-        features: isEn
-          ? [
-              "Up to 15 pages",
-              "Premium custom design",
-              "Blog integration",
-              "Advanced SEO optimization",
-              "Google Analytics setup",
-              "3 months support",
-              "Delivery in 3-4 weeks",
-            ]
-          : [
-              "Jusqu'à 15 pages",
-              "Design premium sur mesure",
-              "Intégration blog",
-              "Optimisation SEO avancée",
-              "Configuration Google Analytics",
-              "3 mois de support",
-              "Livraison en 3-4 semaines",
-            ],
-        highlighted: true,
-        tag: isEn ? "Most Popular" : "Plus populaire",
-      },
-      {
-        name: isEn ? "E-commerce" : "E-commerce",
-        price: isEn ? "From €5,000" : "À partir de 5 000€",
-        description: isEn
-          ? "Full-featured online store solution"
-          : "Boutique en ligne complète et fonctionnelle",
-        features: isEn
-          ? [
-              "Unlimited products",
-              "Secure payment integration",
-              "Inventory management",
-              "Shipping configuration",
-              "Customer accounts",
-              "Marketing tools",
-              "6 months support",
-            ]
-          : [
-              "Produits illimités",
-              "Intégration paiement sécurisé",
-              "Gestion des stocks",
-              "Configuration livraison",
-              "Comptes clients",
-              "Outils marketing",
-              "6 mois de support",
-            ],
-      },
-    ],
     process: [
       {
         number: "1",
@@ -319,19 +239,19 @@ export default async function WebServicePage({ params }: Props) {
       },
       {
         question: isEn
-          ? "Is hosting included in the price?"
-          : "L'hébergement est-il inclus dans le prix ?",
+          ? "Is hosting included?"
+          : "L'hébergement est-il inclus ?",
         answer: isEn
-          ? "The first year of hosting is included in all our packages. After that, hosting costs around €150-300/year depending on your needs."
-          : "La première année d'hébergement est incluse dans toutes nos offres. Ensuite, l'hébergement coûte environ 150-300€/an selon vos besoins.",
+          ? "The first year of hosting is included in all our services. We also provide ongoing support and maintenance."
+          : "La première année d'hébergement est incluse dans toutes nos prestations. Nous assurons également le support et la maintenance.",
       },
       {
         question: isEn
           ? "Can I get the France Num subsidy for my website?"
           : "Puis-je bénéficier de l'aide France Num pour mon site ?",
         answer: isEn
-          ? "Yes! As a certified France Num Activator, we can help you obtain up to €500 in subsidies for your digital project. We handle all the paperwork."
-          : "Oui ! En tant qu'Activateur France Num certifié, nous pouvons vous aider à obtenir jusqu'à 500€ d'aide pour votre projet digital. Nous gérons toutes les démarches administratives.",
+          ? "Yes! As a certified France Num Activator, we can help you obtain subsidies for your digital project. We handle all the paperwork."
+          : "Oui ! En tant qu'Activateur France Num certifié, nous pouvons vous aider à obtenir des aides pour votre projet digital. Nous gérons toutes les démarches administratives.",
       },
     ],
     stats: [
@@ -362,7 +282,6 @@ export default async function WebServicePage({ params }: Props) {
         serviceName={service.name}
         serviceDescription={service.longDescription}
         serviceType="web"
-        priceRange="€€"
       />
       <BreadcrumbJsonLd
         locale={locale as "fr" | "en"}
